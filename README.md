@@ -4,8 +4,10 @@
 
 ## 개발언어
 
-- Ionic v4 기반으로 개발되었으며 기본 프로젝트는 ionic-cli를 이용.
-- [Ionic v4](https://ionicframework.com/) version 4
+- [Ionic v4](https://ionicframework.com/)기반으로 개발되었으며 기본 프로젝트는 ionic-cli를 이용.
+
+## 시작
+> ionic serve
 
 ## 추가 패키지
 
