@@ -2,7 +2,8 @@ import {Component} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {AlertController, ModalController} from '@ionic/angular';
 import {DetailPage} from '../modal/detail/detail.page';
-import { ReportPage } from '../modal/report/report.page';
+import {ReportPage} from '../modal/report/report.page';
+import {ParticipationPage} from '../modal/participation/participation.page';
 
 @Component({
   selector: 'app-tab1',
@@ -62,7 +63,7 @@ export class Tab1Page {
   }
   async presentModal3() {
     const modal = await this.modalC.create({
-      component: DetailPage,
+      component: ParticipationPage,
       componentProps: {value: 123}
     });
 
