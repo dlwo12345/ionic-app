@@ -16,7 +16,7 @@ $ ionic serve
 - moment 시간 라이브러리
 
 ```
-> $ npm i --save moment
+$ npm i --save moment
 ```
 
 > moment.js: 2.22.2

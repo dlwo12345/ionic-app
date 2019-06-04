@@ -6,6 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {Tab1Page} from './tab1.page';
 import {SharedModule} from '../shared/shared.module';
 import {HttpClientModule} from '@angular/common/http';
+import { ModalModule } from '../modal/modal.module';
 
 @NgModule({
   imports: [
@@ -14,8 +15,9 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule,
     SharedModule,
     HttpClientModule,
-    RouterModule.forChild([{path: '', component: Tab1Page}])
+    RouterModule.forChild([{path: '', component: Tab1Page}]),
+    ModalModule,
   ],
-  declarations: [Tab1Page]
+  declarations: [Tab1Page],
 })
 export class Tab1PageModule {}
