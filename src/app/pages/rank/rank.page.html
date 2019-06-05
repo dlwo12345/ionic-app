@@ -1,46 +1,78 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab One
+      Rank
     </ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-header padding no-border>
+  <ion-toolbar>
+    <ion-button size="small" slot="start"
+      ><ion-icon name="arrow-round-back"></ion-icon
+    ></ion-button>
+    <ion-title>
+      <ion-datetime
+        class="ion-text-center"
+        display-format="YYYY-MM"
+        [value]="test"
+      ></ion-datetime>
+    </ion-title>
+    <ion-button size="small" slot="end">
+      <ion-icon name="arrow-round-forward"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
 
-<!-- <ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-item lines="none">
-          <ion-label position="fixed">검색 월:</ion-label>
-          <ion-datetime display-format="YYYY-MM" [value]="test"></ion-datetime>
-        </ion-item>
-      </ion-col>
-      <ion-col></ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-content> -->
+<ion-content padding>
+  <ion-refresher
+    slot="fixed"
+    (ionRefresh)="ionRefresh($event)"
+    (ionPull)="ionPull($event)"
+    (ionStart)="ionStart($event)"
+  >
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      refreshingSpinner="circles"
+    >
+    </ion-refresher-content>
+  </ion-refresher>
 
-<ion-content>
-  <ion-card class="welcome-card">
-    <!-- <ion-img src="/assets/shapes.svg"></ion-img> -->
-    <!-- <ion-card-header> -->
-    <!-- <ion-card-subtitle>Get Started</ion-card-subtitle> -->
-    <!-- <ion-card-title>Welcome to Ionic</ion-card-title> -->
-    <!-- </ion-card-header> -->
-    <ion-card-content>
-      <ion-button (click)="apiTest()">api call test</ion-button>
-      <ion-button (click)="presentModal1()">modal-detail</ion-button>
-      <ion-button (click)="presentModal2()">modal-report</ion-button>
-      <ion-button (click)="participation()">참가신청</ion-button>
-      <ion-input placeholder="값 테스트"></ion-input>
-    </ion-card-content>
-  </ion-card>
-
-  <!-- <ion-nav
-    #nav
-    [root]="rootPage"
-    [rootParams]="{value: '123'}"
-    (ionNavDidChange)="test3($event)"
-    (ionNavWillChange)="test3($event)"
-  ></ion-nav> -->
+  <ion-list>
+    <ion-item *ngFor="let item of testArr">
+      <ion-label>{{ item.text }}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
+
+<!-- <ion-list>
+  <ion-item>
+    <ion-label>api call test</ion-label>
+    <ion-button (click)="apiTest()">
+      <ion-icon name="play"></ion-icon>
+    </ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-label>modal-detail</ion-label>
+    <ion-button (click)="presentModal1()">
+      <ion-icon name="play"></ion-icon>
+    </ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-label>
+      modal-report
+    </ion-label>
+    <ion-button (click)="presentModal2()">
+      <ion-icon name="play"></ion-icon>
+    </ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-label>참가신청</ion-label>
+    <ion-button (click)="participation()">
+      <ion-icon name="play"></ion-icon>
+    </ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-label>값 테스트</ion-label>
+    <ion-input placeholder="값 테스트"></ion-input>
+  </ion-item>
+</ion-list> -->

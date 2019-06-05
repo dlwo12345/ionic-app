@@ -16,6 +16,33 @@ export class RankPage {
   modal = null;
   test = moment(new Date()).format('YYYY-MM');
 
+  testArr = [
+    {
+      text: '초기데이터- 벨라 님의 발전소1'
+    },
+    {
+      text: '초기데이터- 윌슨 님의 발전소3'
+    },
+    {
+      text: '초기데이터- 남산 님의 발전소1'
+    },
+    {
+      text: '초기데이터- 이름긴사람 님의 발전소3'
+    },
+    {
+      text: '초기데이터- 이름긴사람 님의 발전소1'
+    },
+    {
+      text: '초기데이터- 이름긴사람 님의 발전소3'
+    },
+    {
+      text: '초기데이터- 이름긴사람 님의 발전소1'
+    },
+    {
+      text: '초기데이터- 이름긴사람 님의 발전소3'
+    }
+  ];
+
   constructor(
     public http: HttpClient,
     public alertC: AlertController,
@@ -47,7 +74,7 @@ export class RankPage {
       if (dataReturned !== null) {
         console.log('dataReturned', dataReturned);
         // this.dataReturned = dataReturned.data;
-        //alert('Modal Sent Data :'+ dataReturned);
+        // alert('Modal Sent Data :'+ dataReturned);
       }
     });
 
@@ -63,7 +90,7 @@ export class RankPage {
       if (dataReturned !== null) {
         console.log('dataReturned', dataReturned);
         // this.dataReturned = dataReturned.data;
-        //alert('Modal Sent Data :'+ dataReturned);
+        // alert('Modal Sent Data :'+ dataReturned);
       }
     });
 
@@ -72,5 +99,49 @@ export class RankPage {
 
   participation() {
     this.router.navigate(['/participation']);
+  }
+
+  ionRefresh(event) {
+    console.log('Pull Event Triggered!');
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      this.testArr = [
+        {
+          text: '갱신데이터 - 벨라 님의 발전소1'
+        },
+        {
+          text: '갱신데이터 - 윌슨 님의 발전소3'
+        },
+        {
+          text: '갱신데이터 - 남산 님의 발전소1'
+        },
+        {
+          text: '갱신데이터 - 이름긴사람 님의 발전소3'
+        },
+        {
+          text: '갱신데이터 - 이름긴사람 님의 발전소1'
+        },
+        {
+          text: '갱신데이터 - 이름긴사람 님의 발전소3'
+        },
+        {
+          text: '갱신데이터 - 이름긴사람 님의 발전소1'
+        },
+        {
+          text: '갱신데이터 - 이름긴사람 님의 발전소3'
+        }
+      ];
+
+      //complete()  signify that the refreshing has completed and to close the refresher
+      event.target.complete();
+    }, 2000);
+  }
+  ionPull(event) {
+    //Emitted while the user is pulling down the content and exposing the refresher.
+    console.log('ionPull Event Triggered!');
+  }
+  ionStart(event) {
+    //Emitted when the user begins to start pulling down.
+    console.log('ionStart Event Triggered!');
   }
 }
