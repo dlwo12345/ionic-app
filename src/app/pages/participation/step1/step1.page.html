@@ -1,17 +1,36 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>step1</ion-title>
+    <ion-title>발전왕 참가하기 - step1</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/tab1"></ion-back-button>
+      <ion-back-button defaultHref="/participation/agree"></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-input>
-    step1
-  </ion-input>
+  <ion-grid>
+    <ion-row class="ion-text-center">
+      <ion-col>
+        <ion-button color="dark" size="small" expand="full">
+          step1
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="medium" size="small" expand="full">
+          step2
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="medium" size="small" expand="full">
+          신청완료
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer no-border>
   <ion-button expand="full" (click)="next()">
     다음
   </ion-button>
-</ion-content>
+</ion-footer>
