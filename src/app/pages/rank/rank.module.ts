@@ -3,21 +3,21 @@ import {RouterModule} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import {Tab1Page} from './tab1.page';
 import {HttpClientModule} from '@angular/common/http';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { ModalModule } from '../modal/modal.module';
+import {SharedModule} from 'src/app/shared/shared.module';
+import {ModalPageModule} from '../modal/modal.module';
+import {RankPage} from './rank.page';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-    SharedModule,
+    RouterModule.forChild([{path: '', component: RankPage}]),
     HttpClientModule,
-    RouterModule.forChild([{path: '', component: Tab1Page}]),
-    ModalModule
+    SharedModule,
+    ModalPageModule
   ],
-  declarations: [Tab1Page]
+  declarations: [RankPage]
 })
-export class Tab1PageModule {}
+export class RankPageModule {}

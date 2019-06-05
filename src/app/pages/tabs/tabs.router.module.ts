@@ -8,20 +8,16 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
-        children: [
-          {
-            path: '',
-            loadChildren: '../tab1/tab1.module#Tab1PageModule'
-          }
-        ]
+        path: '',
+        redirectTo: '/tabs/rank',
+        pathMatch: 'full'
       },
       {
-        path: 'main',
+        path: 'rank',
         children: [
           {
             path: '',
-            loadChildren: '../main/main.module#MainModule'
+            loadChildren: '../rank/rank.module#RankPageModule'
           }
         ]
       },
@@ -30,20 +26,15 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            loadChildren: '../sign-up/sign-up.module#SignUpModule'
+            loadChildren: '../sign-up/sign-up.module#SignUpPageModule'
           }
         ]
-      },
-      {
-        path: '',
-        redirectTo: '/tabs/tab1',
-        pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/rank',
     pathMatch: 'full'
   }
 ];

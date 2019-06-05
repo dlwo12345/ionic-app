@@ -14,4 +14,4 @@ import {SignUpPage} from './sign-up.page';
   ],
   declarations: [SignUpPage]
 })
-export class SignUpModule {}
+export class SignUpPageModule {}

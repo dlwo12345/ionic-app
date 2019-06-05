@@ -12,4 +12,4 @@ import {ReportPage} from './report/report.page';
   declarations: [DetailPage, ReportPage],
   entryComponents: [DetailPage, ReportPage]
 })
-export class ModalModule {}
+export class ModalPageModule {}

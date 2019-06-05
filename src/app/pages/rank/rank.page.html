@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Tab One
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item lines="none">
+          <ion-label position="fixed">검색 월:</ion-label>
+          <ion-datetime display-format="YYYY-MM" [value]="test"></ion-datetime>
+        </ion-item>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content> -->
+
+<ion-content>
+  <ion-card class="welcome-card">
+    <!-- <ion-img src="/assets/shapes.svg"></ion-img> -->
+    <!-- <ion-card-header> -->
+    <!-- <ion-card-subtitle>Get Started</ion-card-subtitle> -->
+    <!-- <ion-card-title>Welcome to Ionic</ion-card-title> -->
+    <!-- </ion-card-header> -->
+    <ion-card-content>
+      <ion-button (click)="apiTest()">api call test</ion-button>
+      <ion-button (click)="presentModal1()">modal-detail</ion-button>
+      <ion-button (click)="presentModal2()">modal-report</ion-button>
+      <ion-button (click)="participation()">참가신청</ion-button>
+      <ion-input placeholder="값 테스트"></ion-input>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- <ion-nav
+    #nav
+    [root]="rootPage"
+    [rootParams]="{value: '123'}"
+    (ionNavDidChange)="test3($event)"
+    (ionNavWillChange)="test3($event)"
+  ></ion-nav> -->
+</ion-content>
