@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-item class="ion-margin-vertical">
+  <ion-item lines="inset" class="ion-margin-vertical">
     <ion-label position="stacked">발전소 이름</ion-label>
     <ion-input></ion-input>
   </ion-item>
@@ -72,5 +72,5 @@
     <ion-checkbox slot="start"></ion-checkbox>
   </ion-item>
 
-  <ion-button expand="full">가입하기</ion-button>
+  <ion-button expand="full" (click)="navigate()">가입하기</ion-button>
 </ion-content>

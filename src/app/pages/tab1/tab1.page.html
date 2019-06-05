@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Tab One
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="welcome-card">
+    <!-- <ion-img src="/assets/shapes.svg"></ion-img> -->
+    <!-- <ion-card-header> -->
+    <!-- <ion-card-subtitle>Get Started</ion-card-subtitle> -->
+    <!-- <ion-card-title>Welcome to Ionic</ion-card-title> -->
+    <!-- </ion-card-header> -->
+    <ion-card-content>
+      <button (click)="test()">test</button>
+      <button (click)="presentModal1()">detail</button>
+      <button (click)="presentModal2()">report</button>
+      <button (click)="presentModal3()">test</button>
+      <ion-input value="123"></ion-input>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- <ion-nav
+    #nav
+    [root]="rootPage"
+    [rootParams]="{value: '123'}"
+    (ionNavDidChange)="test3($event)"
+    (ionNavWillChange)="test3($event)"
+  ></ion-nav> -->
+</ion-content>

@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      홍길동 님의 발전소
+    </ion-title>
+    <ion-button slot="end" size="small" color="primary" (click)="closeModal()">
+      <ion-icon name="close"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">5월 평균 발전시간</ion-label>
+    <ion-input readonly>4.71 h</ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">위치</ion-label>
+    <ion-input readonly>전라남도 신안군</ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">용량</ion-label>
+    <ion-input readonly>99 kWp</ion-input>
+  </ion-item>
+  <ion-item [ngSwitch]="premiumAuth">
+    <ion-label position="stacked">SPEC</ion-label>
+    <ng-container *ngSwitchCase="true">
+      <ion-input readonly>모듈 : ABCDEFG 300</ion-input>
+      <ion-input readonly>인버터 : ABCDEFG 300</ion-input>
+    </ng-container>
+    <ion-input color="medium" *ngSwitchCase="false" readonly>
+      발전소 정보 등록 후 열람 가능합니다.
+    </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">연식</ion-label>
+    <ion-input readonly>2017년 5월 부터 운영 중. 만 2년</ion-input>
+  </ion-item>
+  <ion-item [ngSwitch]="premiumAuth">
+    <ion-label position="stacked">수익금</ion-label>
+    <ion-input *ngSwitchCase="true" readonly>2,350,000 원</ion-input>
+    <ion-input color="medium" *ngSwitchCase="false" readonly>
+      발전소 정보 등록 후 열람 가능합니다.
+    </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">
+      메달
+    </ion-label>
+    <ion-input readonly>2,350,000 원</ion-input>
+  </ion-item>
+  <ion-item [ngSwitch]="premiumAuth">
+    <ion-label position="stacked">시공사</ion-label>
+    <ion-input *ngSwitchCase="true" readonly>솔라커넥트</ion-input>
+    <ion-input color="medium" *ngSwitchCase="false" readonly>
+      발전소 정보 등록 후 열람 가능합니다.
+    </ion-input>
+  </ion-item>
+</ion-content>

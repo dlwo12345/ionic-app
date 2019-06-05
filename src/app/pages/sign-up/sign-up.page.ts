@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -6,5 +7,9 @@ import {Component} from '@angular/core';
   styleUrls: ['sign-up.page.scss']
 })
 export class SignUpPage {
-  constructor() {}
+  constructor(public router: Router) {}
+
+  navigate() {
+    this.router.navigate(['/tabs/tab1']);
+  }
 }

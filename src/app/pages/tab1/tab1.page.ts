@@ -1,9 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {AlertController, ModalController} from '@ionic/angular';
 import {DetailPage} from '../modal/detail/detail.page';
 import {ReportPage} from '../modal/report/report.page';
-import {ParticipationPage} from '../modal/participation/participation.page';
+import {NavPage} from '../modal/nav/nav.page';
 
 @Component({
   selector: 'app-tab1',
@@ -27,6 +27,10 @@ export class Tab1Page {
     // alert.then(res=>{
     //   res.present();
     // })
+  }
+
+  test3(e) {
+    console.log('e', e);
   }
 
   async presentModal1() {
@@ -61,9 +65,10 @@ export class Tab1Page {
 
     return await modal.present();
   }
+
   async presentModal3() {
     const modal = await this.modalC.create({
-      component: ParticipationPage,
+      component: NavPage,
       componentProps: {value: 123}
     });
 
