@@ -5,23 +5,22 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-header padding no-border>
-  <ion-toolbar>
-    <ion-button size="small" slot="start"
+
+<div style="margin: 0.5em auto;">
+  <ion-buttons>
+    <ion-button color="medium" (click)="changeMonth('left')"
       ><ion-icon name="arrow-round-back"></ion-icon
     ></ion-button>
-    <ion-title>
-      <ion-datetime
-        class="ion-text-center"
-        display-format="YYYY-MM"
-        [value]="test"
-      ></ion-datetime>
-    </ion-title>
-    <ion-button size="small" slot="end">
+    <ion-datetime
+      padding
+      display-format="YYYY-MM"
+      [value]="test"
+    ></ion-datetime>
+    <ion-button color="medium" (click)="changeMonth('right')">
       <ion-icon name="arrow-round-forward"></ion-icon>
     </ion-button>
-  </ion-toolbar>
-</ion-header>
+  </ion-buttons>
+</div>
 
 <ion-content padding>
   <ion-refresher

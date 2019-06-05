@@ -17,30 +17,14 @@ export class RankPage {
   test = moment(new Date()).format('YYYY-MM');
 
   testArr = [
-    {
-      text: '초기데이터- 벨라 님의 발전소1'
-    },
-    {
-      text: '초기데이터- 윌슨 님의 발전소3'
-    },
-    {
-      text: '초기데이터- 남산 님의 발전소1'
-    },
-    {
-      text: '초기데이터- 이름긴사람 님의 발전소3'
-    },
-    {
-      text: '초기데이터- 이름긴사람 님의 발전소1'
-    },
-    {
-      text: '초기데이터- 이름긴사람 님의 발전소3'
-    },
-    {
-      text: '초기데이터- 이름긴사람 님의 발전소1'
-    },
-    {
-      text: '초기데이터- 이름긴사람 님의 발전소3'
-    }
+    {text: '초기데이터- 벨라 님의 발전소1'},
+    {text: '초기데이터- 윌슨 님의 발전소3'},
+    {text: '초기데이터- 남산 님의 발전소1'},
+    {text: '초기데이터- 이름긴사람 님의 발전소3'},
+    {text: '초기데이터- 이름긴사람 님의 발전소1'},
+    {text: '초기데이터- 이름긴사람 님의 발전소3'},
+    {text: '초기데이터- 이름긴사람 님의 발전소1'},
+    {text: '초기데이터- 이름긴사람 님의 발전소3'}
   ];
 
   constructor(
@@ -97,43 +81,46 @@ export class RankPage {
     return await modal.present();
   }
 
+  changeMonth(type: string) {
+    switch (type) {
+      case 'left':
+        this.test = moment(this.test)
+          .add(-1, 'month')
+          .format('YYYY-MM');
+        break;
+      case 'right':
+        this.test = moment(this.test)
+          .add(1, 'month')
+          .format('YYYY-MM');
+        break;
+    }
+
+    this.ionRefresh();
+  }
+
   participation() {
     this.router.navigate(['/participation']);
   }
 
-  ionRefresh(event) {
+  ionRefresh(event?) {
     console.log('Pull Event Triggered!');
     setTimeout(() => {
       console.log('Async operation has ended');
       this.testArr = [
-        {
-          text: '갱신데이터 - 벨라 님의 발전소1'
-        },
-        {
-          text: '갱신데이터 - 윌슨 님의 발전소3'
-        },
-        {
-          text: '갱신데이터 - 남산 님의 발전소1'
-        },
-        {
-          text: '갱신데이터 - 이름긴사람 님의 발전소3'
-        },
-        {
-          text: '갱신데이터 - 이름긴사람 님의 발전소1'
-        },
-        {
-          text: '갱신데이터 - 이름긴사람 님의 발전소3'
-        },
-        {
-          text: '갱신데이터 - 이름긴사람 님의 발전소1'
-        },
-        {
-          text: '갱신데이터 - 이름긴사람 님의 발전소3'
-        }
+        {text: '갱신데이터 - 벨라 님의 발전소1'},
+        {text: '갱신데이터 - 윌슨 님의 발전소3'},
+        {text: '갱신데이터 - 남산 님의 발전소1'},
+        {text: '갱신데이터 - 이름긴사람 님의 발전소3'},
+        {text: '갱신데이터 - 이름긴사람 님의 발전소1'},
+        {text: '갱신데이터 - 이름긴사람 님의 발전소3'},
+        {text: '갱신데이터 - 이름긴사람 님의 발전소1'},
+        {text: '갱신데이터 - 이름긴사람 님의 발전소3'}
       ];
 
       //complete()  signify that the refreshing has completed and to close the refresher
-      event.target.complete();
+      if (event) {
+        event.target.complete();
+      }
     }, 2000);
   }
   ionPull(event) {
