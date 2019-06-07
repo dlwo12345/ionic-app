@@ -44,7 +44,7 @@
     >
       <ion-thumbnail>
         <div class="rank-wrap">
-          <ion-icon *ngIf="i <= 2" name="medal"></ion-icon>
+          <ion-icon *ngIf="i <= 2" mode="ios" name="medal"></ion-icon>
           <span class="rank-number">{{ i + 1 }}</span>
         </div>
       </ion-thumbnail>
@@ -57,7 +57,7 @@
 
 <ion-footer>
   <!-- 현재 나의 신청 상태에 1.미신청, 2.참가요청중, 3.내발전소 정보를 표시해줘야함 -->
-  <ion-button (click)="participation()" expand="full"
+  <ion-button routerLink="/participation" expand="full"
     >발전왕 참가신청</ion-button
   >
 </ion-footer>

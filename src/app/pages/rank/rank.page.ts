@@ -116,10 +116,6 @@ export class RankPage {
     this.ionRefresh(); // 임시.. data reload api 호출 필요
   }
 
-  participation() {
-    this.router.navigate(['/participation']);
-  }
-
   async ionRefresh(event?) {
     console.log('Pull Event Triggered!');
     // api 호출

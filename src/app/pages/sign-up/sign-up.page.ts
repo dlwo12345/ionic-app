@@ -8,8 +8,4 @@ import {Router} from '@angular/router';
 })
 export class SignUpPage {
   constructor(public router: Router) {}
-
-  navigate() {
-    this.router.navigate(['/tabs/tab1']);
-  }
 }

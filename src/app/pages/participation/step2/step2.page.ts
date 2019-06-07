@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {NavController} from '@ionic/angular';
 
 @Component({
   selector: 'app-step2',
@@ -7,11 +8,11 @@ import {Router} from '@angular/router';
   styleUrls: ['./step2.page.scss']
 })
 export class Step2Page implements OnInit {
-  constructor(public router: Router) {}
+  constructor(public navC: NavController) {}
 
   ngOnInit() {}
 
   next() {
-    this.router.navigate(['/participation/complete']);
+    this.navC.navigateForward('/participation/complete');
   }
 }

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
+import {NavController} from '@ionic/angular';
 
 @Component({
   selector: 'app-complete',
@@ -7,11 +8,11 @@ import {Router} from '@angular/router';
   styleUrls: ['./complete.page.scss']
 })
 export class CompletePage implements OnInit {
-  constructor(public router: Router) {}
+  constructor(public navC: NavController) {}
 
   ngOnInit() {}
 
   goMain() {
-    this.router.navigate(['/tabs/rank']);
+    this.navC.navigateBack('/tabs/rank');
   }
 }

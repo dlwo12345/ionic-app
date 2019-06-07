@@ -1,6 +1,7 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
 import {Router, ActivatedRoute, NavigationEnd} from '@angular/router';
 import {Subscription} from 'rxjs';
+import {NavController} from '@ionic/angular';
 
 @Component({
   selector: 'app-agree',
@@ -10,18 +11,12 @@ import {Subscription} from 'rxjs';
 export class AgreePage implements OnInit, OnDestroy {
   routerSub: Subscription;
   interval = null;
-  constructor(public router: Router) {}
+  constructor(public navC: NavController) {}
 
-  ngOnInit() {
-    this.routerSub = this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        console.log('event', event);
-      }
-    });
-  }
+  ngOnInit() {}
 
   agree() {
-    this.router.navigate(['/participation/step1']);
+    this.navC.navigateForward('/participation/step1');
   }
 
   ngOnDestroy(): void {
