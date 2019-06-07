@@ -11,17 +11,17 @@
   <ion-grid>
     <ion-row class="ion-text-center">
       <ion-col>
-        <ion-button color="medium" size="small" expand="full">
+        <ion-button color="medium" expand="full">
           step1
         </ion-button>
       </ion-col>
       <ion-col>
-        <ion-button color="medium" size="small" expand="full">
+        <ion-button color="medium" expand="full">
           step2
         </ion-button>
       </ion-col>
       <ion-col>
-        <ion-button color="dark" size="small" expand="full">
+        <ion-button color="dark" expand="full">
           신청완료
         </ion-button>
       </ion-col>
@@ -30,10 +30,8 @@
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar>
-    <!-- routerLink="/tabs/rank" -->
-    <ion-button (click)="goMain()" routerDirection="back" expand="full"
-      >발전왕 메인으로 이동하기</ion-button
-    >
-  </ion-toolbar>
+  <!-- routerLink="/tabs/rank" -->
+  <ion-button no-margin (click)="goMain()" routerDirection="back" expand="full"
+    >발전왕 메인으로 이동하기</ion-button
+  >
 </ion-footer>

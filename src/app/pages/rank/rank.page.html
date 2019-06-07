@@ -12,6 +12,7 @@
       <ion-icon name="arrow-round-back"></ion-icon>
     </ion-button>
     <ion-datetime
+      padding
       display-format="YYYY-MM"
       [value]="viewMonth"
       (ionChange)="changeMonth('select', $event)"
@@ -36,8 +37,9 @@
     </ion-refresher-content>
   </ion-refresher>
 
-  <ion-list>
+  <ion-list no-padding>
     <ion-item
+      no-padding
       class="custom"
       *ngFor="let item of testArr; let i = index"
       (click)="presentModal1($event)"
@@ -57,8 +59,8 @@
 
 <ion-footer>
   <!-- 현재 나의 신청 상태에 1.미신청, 2.참가요청중, 3.내발전소 정보를 표시해줘야함 -->
-  <ion-button routerLink="/participation" expand="full"
-    >발전왕 참가신청</ion-button
+  <ion-button no-margin routerLink="/participation" expand="full"
+    >발전왕 참가하기</ion-button
   >
 </ion-footer>
 
