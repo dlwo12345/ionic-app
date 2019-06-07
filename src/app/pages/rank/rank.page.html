@@ -9,16 +9,19 @@
 <div style="margin: 0.5em auto 0 auto;">
   <ion-buttons>
     <ion-button color="medium" (click)="changeMonth('left')">
-      <ion-icon name="arrow-round-back"></ion-icon>
+      <ion-icon size="large" name="arrow-round-back"></ion-icon>
     </ion-button>
     <ion-datetime
       padding
+      style="font-size: 1.5em;"
       display-format="YYYY-MM"
+      cancelText="취소"
+      done-text="완료"
       [value]="viewMonth"
       (ionChange)="changeMonth('select', $event)"
     ></ion-datetime>
     <ion-button color="medium" (click)="changeMonth('right')">
-      <ion-icon name="arrow-round-forward"></ion-icon>
+      <ion-icon size="large" name="arrow-round-forward"></ion-icon>
     </ion-button>
   </ion-buttons>
 </div>

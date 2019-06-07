@@ -7,7 +7,87 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content>
+  <ion-card margin>
+    <ion-card-header>
+      <ion-card-subtitle>발전왕 Subtitle</ion-card-subtitle>
+      <ion-card-title>발전왕 설명 영역</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      발전왕 소개.. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Delectus architecto perspiciatis minus sunt cupiditate, officiis impedit
+      inventore laudantium saepe doloribus. Adipisci ad omnis mollitia quam
+      culpa fugiat dolore consequuntur autem?
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-item>
+      <ion-icon name="information-circle-outline"></ion-icon>
+      <ion-label padding no-margin>발전왕 서비스 이용약관</ion-label>
+    </ion-item>
+
+    <ion-content style="height:200px; overflow: scroll;">
+      <ion-card-content style="color:#666;">
+        약관에 대한 설명.. Lorem ipsum dolor sit amet, consectetur adipisicing
+        elit. Labore asperiores, porro, ea voluptatem quis sint a eum natus
+        dolores cum odit, molestias ratione necessitatibus atque nobis eligendi
+        in ab voluptatibus. 약관에 대한 설명.. Lorem ipsum dolor sit amet,
+        consectetur adipisicing elit. Labore asperiores, porro, ea voluptatem
+        quis sint a eum natus dolores cum odit, molestias ratione necessitatibus
+        atque nobis eligendi in ab voluptatibus. 약관에 대한 설명.. Lorem ipsum
+        dolor sit amet, consectetur adipisicing elit. Labore asperiores, porro,
+        ea voluptatem quis sint a eum natus dolores cum odit, molestias ratione
+        necessitatibus atque nobis eligendi in ab voluptatibus. 약관에 대한
+        설명.. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore
+        asperiores, porro, ea voluptatem quis sint a eum natus dolores cum odit,
+        molestias ratione necessitatibus atque nobis eligendi in ab
+        voluptatibus.
+      </ion-card-content>
+    </ion-content>
+    <ion-item lines="none">
+      <ion-label style="font-size:0.8em;">
+        약관에 동의합니다.
+      </ion-label>
+      <ion-checkbox slot="start"></ion-checkbox>
+    </ion-item>
+  </ion-card>
+
+  <ion-card>
+    <ion-item>
+      <ion-icon name="information-circle-outline"></ion-icon>
+      <ion-label padding no-margin
+        >모니터링 정보 수집 및 이용 동의 약관</ion-label
+      >
+    </ion-item>
+
+    <ion-content style="height:200px; overflow: scroll;">
+      <ion-card-content style="color:#666;">
+        약관에 대한 설명.. Lorem ipsum dolor sit amet, consectetur adipisicing
+        elit. Labore asperiores, porro, ea voluptatem quis sint a eum natus
+        dolores cum odit, molestias ratione necessitatibus atque nobis eligendi
+        in ab voluptatibus. 약관에 대한 설명.. Lorem ipsum dolor sit amet,
+        consectetur adipisicing elit. Labore asperiores, porro, ea voluptatem
+        quis sint a eum natus dolores cum odit, molestias ratione necessitatibus
+        atque nobis eligendi in ab voluptatibus. 약관에 대한 설명.. Lorem ipsum
+        dolor sit amet, consectetur adipisicing elit. Labore asperiores, porro,
+        ea voluptatem quis sint a eum natus dolores cum odit, molestias ratione
+        necessitatibus atque nobis eligendi in ab voluptatibus. 약관에 대한
+        설명.. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore
+        asperiores, porro, ea voluptatem quis sint a eum natus dolores cum odit,
+        molestias ratione necessitatibus atque nobis eligendi in ab
+        voluptatibus.
+      </ion-card-content>
+    </ion-content>
+    <ion-item lines="none">
+      <ion-label style="font-size: 0.8em;">
+        약관에 동의합니다.
+      </ion-label>
+      <ion-checkbox slot="start"></ion-checkbox>
+    </ion-item>
+  </ion-card>
+</ion-content>
 
 <ion-footer no-border>
   <ion-button no-margin expand="full" (click)="agree()">
