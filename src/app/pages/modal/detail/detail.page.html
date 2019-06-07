@@ -3,7 +3,13 @@
     <ion-title>
       홍길동 님의 발전소
     </ion-title>
-    <ion-button slot="end" margin size="small" color="primary" (click)="closeModal()">
+    <ion-button
+      slot="end"
+      margin
+      size="small"
+      color="primary"
+      (click)="closeModal()"
+    >
       <ion-icon name="close"></ion-icon>
     </ion-button>
   </ion-toolbar>
@@ -47,6 +53,7 @@
     <ion-label position="stacked">
       메달
     </ion-label>
+    <ion-button slot="end" size="small" color="medium" (click)="presentModal1()">상세보기</ion-button>
     <ion-input readonly>2,350,000 원</ion-input>
   </ion-item>
   <ion-item [ngSwitch]="premiumAuth">
