@@ -6,6 +6,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {IonicModule} from '@ionic/angular';
 
 import {Step2Page} from './step2.page';
+import {SharedModule} from 'src/app/shared/shared.module';
 
 const routes: Routes = [
   {
@@ -15,12 +16,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes)
-  ],
+  imports: [SharedModule, RouterModule.forChild(routes)],
   declarations: [Step2Page]
 })
 export class Step2PageModule {}

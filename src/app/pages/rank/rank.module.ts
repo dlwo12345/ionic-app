@@ -10,12 +10,8 @@ import {RankPage} from './rank.page';
 
 @NgModule({
   imports: [
-    IonicModule,
-    CommonModule,
-    FormsModule,
-    RouterModule.forChild([{path: '', component: RankPage}]),
-    HttpClientModule,
     SharedModule,
+    RouterModule.forChild([{path: '', component: RankPage}]),
     ModalPageModule
   ],
   declarations: [RankPage]
