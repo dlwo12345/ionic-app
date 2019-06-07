@@ -6,13 +6,12 @@
   </ion-toolbar>
 </ion-header>
 
-<div style="margin: 0.5em auto;">
+<div style="margin: 0.5em auto 0 auto;">
   <ion-buttons>
-    <ion-button color="medium" (click)="changeMonth('left')"
-      ><ion-icon name="arrow-round-back"></ion-icon
-    ></ion-button>
+    <ion-button color="medium" (click)="changeMonth('left')">
+      <ion-icon name="arrow-round-back"></ion-icon>
+    </ion-button>
     <ion-datetime
-      padding
       display-format="YYYY-MM"
       [value]="viewMonth"
       (ionChange)="changeMonth('select', $event)"
@@ -44,9 +43,9 @@
       (click)="presentModal1($event)"
     >
       <ion-thumbnail>
-        <div>
+        <div class="rank-wrap">
           <ion-icon *ngIf="i <= 2" name="medal"></ion-icon>
-          {{ i + 1 }}
+          <span class="rank-number">{{ i + 1 }}</span>
         </div>
       </ion-thumbnail>
       <ion-label>
