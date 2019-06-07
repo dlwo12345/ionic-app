@@ -14,25 +14,23 @@ import * as moment from 'moment';
 })
 export class RankPage {
   modal = null;
-  test = moment(new Date()).format('YYYY-MM');
+  viewMonth = moment(new Date()).format('YYYY-MM');
 
-  testArr = [
-    {text: '초기데이터- 벨라 님의 발전소1'},
-    {text: '초기데이터- 윌슨 님의 발전소3'},
-    {text: '초기데이터- 남산 님의 발전소1'},
-    {text: '초기데이터- 이름긴사람 님의 발전소3'},
-    {text: '초기데이터- 이름긴사람 님의 발전소1'},
-    {text: '초기데이터- 이름긴사람 님의 발전소3'},
-    {text: '초기데이터- 이름긴사람 님의 발전소1'},
-    {text: '초기데이터- 이름긴사람 님의 발전소3'}
-  ];
+  testArr: any = [];
 
   constructor(
     public http: HttpClient,
     public alertC: AlertController,
     public modalC: ModalController,
     public router: Router
-  ) {}
+  ) {
+    // 초기 데이터 call
+    this.loadData();
+
+    // 나의 정보도 call해서 받아와야함(발전왕 참가신청 및 나의 발전소 출력시키기 위해서)
+    // 발전소 참가신청 필요 상태 - 미신청, 요청중, 참가중
+    // 참가중일때 내 발전소에 대한 정보 필요
+  }
 
   apiTest() {
     this.http.get('/assets/test.json', {}).subscribe(res => {
@@ -48,7 +46,24 @@ export class RankPage {
     console.log('e', e);
   }
 
-  async presentModal1() {
+  // api call
+  loadData() {
+    this.http.get('/assets/test2.json', {}).subscribe((res: any) => {
+      console.log('로드완료', res);
+      this.testArr = res.data;
+    });
+  }
+
+  // 임시로 리로딩용도로 사용 추후엔 loadData로 호출예정
+  loadData2() {
+    this.http.get('/assets/test3.json', {}).subscribe((res: any) => {
+      console.log('로드완료', res);
+      this.testArr = res.data;
+    });
+  }
+
+  async presentModal1(e) {
+    console.log('e', e); // 전달되는 seq값을 아래 modal에 전달해줄 예정
     const modal = await this.modalC.create({
       component: DetailPage,
       componentProps: {value: 123}
@@ -81,54 +96,48 @@ export class RankPage {
     return await modal.present();
   }
 
-  changeMonth(type: string) {
+  changeMonth(type?: string, time?: any) {
     switch (type) {
       case 'left':
-        this.test = moment(this.test)
+        this.viewMonth = moment(this.viewMonth)
           .add(-1, 'month')
           .format('YYYY-MM');
         break;
       case 'right':
-        this.test = moment(this.test)
+        this.viewMonth = moment(this.viewMonth)
           .add(1, 'month')
           .format('YYYY-MM');
         break;
+      case 'select':
+        this.viewMonth = moment(time.detail.value).format('YYYY-MM');
+        break;
     }
 
-    this.ionRefresh();
+    this.ionRefresh(); // 임시.. data reload api 호출 필요
   }
 
   participation() {
     this.router.navigate(['/participation']);
   }
 
-  ionRefresh(event?) {
+  async ionRefresh(event?) {
     console.log('Pull Event Triggered!');
-    setTimeout(() => {
-      console.log('Async operation has ended');
-      this.testArr = [
-        {text: '갱신데이터 - 벨라 님의 발전소1'},
-        {text: '갱신데이터 - 윌슨 님의 발전소3'},
-        {text: '갱신데이터 - 남산 님의 발전소1'},
-        {text: '갱신데이터 - 이름긴사람 님의 발전소3'},
-        {text: '갱신데이터 - 이름긴사람 님의 발전소1'},
-        {text: '갱신데이터 - 이름긴사람 님의 발전소3'},
-        {text: '갱신데이터 - 이름긴사람 님의 발전소1'},
-        {text: '갱신데이터 - 이름긴사람 님의 발전소3'}
-      ];
+    // api 호출
+    await this.loadData2();
 
-      //complete()  signify that the refreshing has completed and to close the refresher
-      if (event) {
-        event.target.complete();
-      }
-    }, 2000);
+    // complete()  signify that the refreshing has completed and to close the refresher
+    if (event) {
+      event.target.complete();
+    }
   }
+
   ionPull(event) {
-    //Emitted while the user is pulling down the content and exposing the refresher.
+    // 사용자가 콘텐츠를 가져와서 재생기를 노출하는 동안 발생
     console.log('ionPull Event Triggered!');
   }
+
   ionStart(event) {
-    //Emitted when the user begins to start pulling down.
+    // 사용자가 pull down을 시작할때 발생하는 이벤트
     console.log('ionStart Event Triggered!');
   }
 }

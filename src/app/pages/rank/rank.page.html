@@ -14,7 +14,8 @@
     <ion-datetime
       padding
       display-format="YYYY-MM"
-      [value]="test"
+      [value]="viewMonth"
+      (ionChange)="changeMonth('select', $event)"
     ></ion-datetime>
     <ion-button color="medium" (click)="changeMonth('right')">
       <ion-icon name="arrow-round-forward"></ion-icon>
@@ -22,7 +23,7 @@
   </ion-buttons>
 </div>
 
-<ion-content padding>
+<ion-content>
   <ion-refresher
     slot="fixed"
     (ionRefresh)="ionRefresh($event)"
@@ -37,13 +38,26 @@
   </ion-refresher>
 
   <ion-list>
-    <ion-item *ngFor="let item of testArr">
-      <ion-label>{{ item.text }}</ion-label>
+    <ion-item
+      class="custom"
+      *ngFor="let item of testArr; let i = index"
+      (click)="presentModal1($event)"
+    >
+      <ion-thumbnail>
+        <div>
+          <ion-icon *ngIf="i <= 2" name="medal"></ion-icon>
+          {{ i + 1 }}
+        </div>
+      </ion-thumbnail>
+      <ion-label>
+        {{ item.text }}
+      </ion-label>
     </ion-item>
   </ion-list>
 </ion-content>
 
 <ion-footer>
+  <!-- 현재 나의 신청 상태에 1.미신청, 2.참가요청중, 3.내발전소 정보를 표시해줘야함 -->
   <ion-button (click)="participation()" expand="full"
     >발전왕 참가신청</ion-button
   >
