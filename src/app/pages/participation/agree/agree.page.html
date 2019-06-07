@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [formGroup]="agreeForm" (ngSubmit)="$event.preventDefault()">
   <ion-card margin>
     <ion-card-header>
       <ion-card-subtitle>발전왕 Subtitle</ion-card-subtitle>
@@ -50,7 +50,7 @@
       <ion-label style="font-size:0.8em;">
         약관에 동의합니다.
       </ion-label>
-      <ion-checkbox slot="start"></ion-checkbox>
+      <ion-checkbox slot="start" formControlName="agree1"></ion-checkbox>
     </ion-item>
   </ion-card>
 
@@ -84,13 +84,18 @@
       <ion-label style="font-size: 0.8em;">
         약관에 동의합니다.
       </ion-label>
-      <ion-checkbox slot="start"></ion-checkbox>
+      <ion-checkbox slot="start" formControlName="agree2"></ion-checkbox>
     </ion-item>
   </ion-card>
 </ion-content>
 
 <ion-footer no-border>
-  <ion-button no-margin expand="full" (click)="agree()">
+  <ion-button
+    no-margin
+    [disabled]="!agreeCheck()"
+    expand="full"
+    (click)="next()"
+  >
     동의하고 가입하기
   </ion-button>
 </ion-footer>
