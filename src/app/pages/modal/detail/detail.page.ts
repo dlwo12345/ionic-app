@@ -1,7 +1,8 @@
 import {Component, Input} from '@angular/core';
 import * as moment from 'moment';
 import {NavParams, ModalController} from '@ionic/angular';
-import { ReportPage } from '../report/report.page';
+import {ReportPage} from '../report/report.page';
+import {MedalPage} from '../medal/medal.page';
 @Component({
   selector: 'app-detail',
   templateUrl: 'detail.page.html',
@@ -24,7 +25,7 @@ export class DetailPage {
   async presentModal1(e) {
     console.log('e', e); // 전달되는 seq값을 아래 modal에 전달해줄 예정
     const modal = await this.modalC.create({
-      component: ReportPage,
+      component: MedalPage,
       componentProps: {value: 123}
     });
 

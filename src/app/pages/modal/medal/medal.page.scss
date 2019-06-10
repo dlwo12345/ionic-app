@@ -1,0 +1,27 @@
+.medal-item {
+  outline: 1px solid black;
+  text-align: center;
+  font-size: 0.7em;
+}
+.medal-title {
+  font-size: 0.7em;
+}
+.medal-text {
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
+.progress-custom {
+  padding: 0;
+  position: relative;
+  .progress-custom-label {
+    position: absolute;
+    right: 0;
+    z-index: 2;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.8em;
+    color: white;
+    font-weight: bold;
+  }
+}

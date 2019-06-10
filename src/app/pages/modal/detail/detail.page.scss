@@ -2,3 +2,42 @@
   --background: gray;
   --color: white;
 }
+
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+ul,
+li,
+ol {
+  list-style: none;
+}
+
+.btn-view-details {
+  text-decoration: underline;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.clearfix {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.medal-item {
+  border: 1px solid black;
+  margin: 2px;
+}
+
+.medal-title {
+  font-size: 0.7em;
+}
+.medal-text {
+  font-weight: bold;
+  font-size: 0.8em;
+}
