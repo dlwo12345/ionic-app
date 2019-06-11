@@ -3,12 +3,6 @@
   --color: white;
 }
 
-.clearfix:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
 ul,
 li,
 ol {
@@ -23,21 +17,15 @@ ol {
   font-size: 1em;
 }
 
-.clearfix {
-  content: '';
-  display: block;
-  clear: both;
-}
-
 .medal-item {
+  display: inline-block;
   border: 1px solid black;
+  text-align: center;
   margin: 2px;
 }
 
 .medal-title {
-  font-size: 0.7em;
 }
 .medal-text {
   font-weight: bold;
-  font-size: 0.8em;
 }

@@ -16,19 +16,19 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
+  <ion-item lines="full">
     <ion-label position="stacked">5월 평균 발전시간</ion-label>
     <ion-input readonly>4.71 h</ion-input>
   </ion-item>
-  <ion-item>
+  <ion-item lines="full">
     <ion-label position="stacked">위치</ion-label>
     <ion-input readonly>전라남도 신안군</ion-input>
   </ion-item>
-  <ion-item>
+  <ion-item lines="full">
     <ion-label position="stacked">용량</ion-label>
     <ion-input readonly>99 kWp</ion-input>
   </ion-item>
-  <ion-item [ngSwitch]="premiumAuth">
+  <ion-item lines="full" [ngSwitch]="premiumAuth">
     <ion-label position="stacked">SPEC</ion-label>
     <ng-container *ngSwitchCase="true">
       <ion-input readonly>모듈 : ABCDEFG 300</ion-input>
@@ -38,36 +38,34 @@
       발전소 정보 등록 후 열람 가능합니다.
     </ion-input>
   </ion-item>
-  <ion-item>
+  <ion-item lines="full">
     <ion-label position="stacked">연식</ion-label>
     <ion-input readonly>2017년 5월 부터 운영 중. 만 2년</ion-input>
   </ion-item>
-  <ion-item [ngSwitch]="premiumAuth">
+  <ion-item lines="full" [ngSwitch]="premiumAuth" style="margin-bottom: 1px;">
     <ion-label position="stacked">수익금</ion-label>
     <ion-input *ngSwitchCase="true" readonly>2,350,000 원</ion-input>
     <ion-input color="medium" *ngSwitchCase="false" readonly>
       발전소 정보 등록 후 열람 가능합니다.
     </ion-input>
   </ion-item>
-  <ion-item [ngSwitch]="premiumAuth">
-    <ion-label position="stacked">시공사</ion-label>
-    <ion-input *ngSwitchCase="true" readonly>솔라커넥트</ion-input>
-    <ion-input color="medium" *ngSwitchCase="false" readonly>
-      발전소 정보 등록 후 열람 가능합니다.
-    </ion-input>
-  </ion-item>
-  <ion-list class="clearfix" padding-horizontal lines="full">
+  <ion-list lines="full" no-margin style="padding:0 0 16px 16px; border-bottom: 1px solid #c8c7cc;">
     <ion-list-header no-padding>
       <ion-label>메달</ion-label>
       <button padding class="btn-view-details" (click)="presentModal1()">
         상세보기
       </button>
     </ion-list-header>
-    <ion-item class="medal-item" lines="none" float-left>
-      <ion-text>
-        <p class="medal-title">발전왕</p>
-        <p class="medal-text">2</p>
-      </ion-text>
-    </ion-item>
+    <ion-text class="medal-item" padding>
+      <p class="medal-title">발전왕</p>
+      <p class="medal-text">2</p>
+    </ion-text>
   </ion-list>
+  <ion-item lines="full" [ngSwitch]="premiumAuth">
+    <ion-label position="stacked">시공사</ion-label>
+    <ion-input *ngSwitchCase="true" readonly>솔라커넥트</ion-input>
+    <ion-input color="medium" *ngSwitchCase="false" readonly>
+      발전소 정보 등록 후 열람 가능합니다.
+    </ion-input>
+  </ion-item>
 </ion-content>
