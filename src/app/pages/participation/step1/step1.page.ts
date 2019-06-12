@@ -15,4 +15,8 @@ export class Step1Page implements OnInit {
   next() {
     this.navC.navigateForward('/participation/step2');
   }
+
+  segmentChanged() {
+    console.log('segmentChanged');
+  }
 }

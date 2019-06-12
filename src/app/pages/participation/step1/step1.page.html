@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid>
+  <ion-grid style="margin-bottom: 5px;">
     <ion-row class="ion-text-center">
       <ion-col>
         <ion-button color="dark" expand="full">
@@ -27,6 +27,48 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <ion-item>
+    <ion-label position="stacked" class="title-label">발전소 이름</ion-label>
+    <ion-input placeholder="발전소 이름을 입력해주세요."></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked" class="title-label">용량</ion-label>
+    <ion-input placeholder="용량을 입력해주세요"></ion-input>
+  </ion-item>
+  <ion-item class="ion-margin-bottom">
+    <ion-label position="stacked" class="title-label">REC 가중치</ion-label>
+    <ion-input placeholder="REC 가중치를 입력해주세요"></ion-input>
+  </ion-item>
+  <h3 style="font-size: 14px; font-weight: bold; padding: 10px 16px;">
+    주소
+  </h3>
+  <ion-button class="ion-padding-horizontal" expand="block"
+    >주소검색</ion-button
+  >
+  <ion-item>
+    <ion-input readonly placeholder="주소를 검색해주세요."></ion-input>
+  </ion-item>
+  <ion-item class="ion-margin-bottom">
+    <ion-input placeholder="상세 주소를 입력해 주세요."></ion-input>
+  </ion-item>
+
+  <h3 style="font-size: 14px; font-weight: bold; padding: 10px 16px;">
+    ESS 유무
+  </h3>
+  <ion-segment (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="y" checked>
+      <ion-icon name="checkmark-circle-outline"></ion-icon>
+      <ion-label>유</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="n">
+      <ion-label>무</ion-label>
+      <ion-icon name="close-circle-outline"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+  <ion-item>
+    <ion-input placeholder="ESS 용량을 입력해 주세요."></ion-input>
+  </ion-item>
 </ion-content>
 
 <ion-footer no-border>
