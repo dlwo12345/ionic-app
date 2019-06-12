@@ -11,17 +11,17 @@
   <ion-grid style="margin-bottom: 5px;">
     <ion-row class="ion-text-center">
       <ion-col>
-        <ion-button color="dark" expand="full">
+        <ion-button color="dark" size="small" expand="full">
           step1
         </ion-button>
       </ion-col>
       <ion-col>
-        <ion-button color="medium" expand="full">
+        <ion-button color="medium" size="small" expand="full">
           step2
         </ion-button>
       </ion-col>
       <ion-col>
-        <ion-button color="medium" expand="full">
+        <ion-button color="medium" size="small" expand="full">
           신청완료
         </ion-button>
       </ion-col>
@@ -56,7 +56,7 @@
   <h3 style="font-size: 14px; font-weight: bold; padding: 10px 16px;">
     ESS 유무
   </h3>
-  <ion-segment (ionChange)="segmentChanged($event)">
+  <ion-segment padding mode="ios" (ionChange)="segmentChanged($event)">
     <ion-segment-button value="y" checked>
       <ion-icon name="checkmark-circle-outline"></ion-icon>
       <ion-label>유</ion-label>
