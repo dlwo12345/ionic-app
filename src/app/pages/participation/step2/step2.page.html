@@ -27,6 +27,38 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+  <h3
+    class="ion-margin-vertical"
+    style="text-align: center; font-weight: bold; font-size: 16px;"
+  >
+    어떤 모니터링 서비스 사용중이신가요?
+  </h3>
+  <ion-select
+    class="ion-margin-vertical ion-padding"
+    placeholder="선택하세요."
+    okText="확인"
+    cancelText="취소"
+  >
+    <ion-select-option value="brown">제품1</ion-select-option>
+    <ion-select-option value="blonde">제품2</ion-select-option>
+    <ion-select-option value="black">제품3</ion-select-option>
+    <ion-select-option value="red">제품4</ion-select-option>
+  </ion-select>
+  <ion-item>
+    <ion-input placeholder="모니터링 서비스 URL을 입력해 주세요."></ion-input>
+  </ion-item>
+  <pre>
+  ※ 목록에 없는 모니터링 서비스는 '기타'를 선택해주세요.
+    순차적으로 서비스 준비중 입니다.
+  </pre>
+  <ion-item>
+    <ion-label position="stacked" class="title-label">ID</ion-label>
+    <ion-input placeholder="ID를 입력해주세요"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked" class="title-label">PW</ion-label>
+    <ion-input placeholder="PW를 입력해주세요"></ion-input>
+  </ion-item>
 </ion-content>
 <ion-footer no-border>
   <ion-button no-margin expand="full" (click)="next()">
