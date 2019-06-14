@@ -22,11 +22,11 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'signup',
+        path: 'my',
         children: [
           {
             path: '',
-            loadChildren: '../sign-up/sign-up.module#SignUpPageModule'
+            loadChildren: '../my/my.module#MyPageModule'
           }
         ]
       }

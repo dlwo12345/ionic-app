@@ -1,7 +1,6 @@
 import {Component, Input} from '@angular/core';
 import * as moment from 'moment';
 import {NavParams, ModalController} from '@ionic/angular';
-import {ReportPage} from '../report/report.page';
 import {MedalPage} from '../medal/medal.page';
 @Component({
   selector: 'app-detail',

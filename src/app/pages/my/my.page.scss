@@ -28,34 +28,6 @@
       }
     }
   }
-
-  // 1등
-  &:nth-of-type(1) {
-    .rank-number {
-      top: 57% !important;
-    }
-    ion-icon {
-      color: #f4d172;
-    }
-  }
-  // 2등
-  &:nth-of-type(2) {
-    .rank-number {
-      top: 57% !important;
-    }
-    ion-icon {
-      color: #a1aaac;
-    }
-  }
-  // 3등
-  &:nth-of-type(3) {
-    .rank-number {
-      top: 57% !important;
-    }
-    ion-icon {
-      color: #c58d56;
-    }
-  }
 }
 
 .clearfix:after {

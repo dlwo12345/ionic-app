@@ -5,13 +5,14 @@ import {DetailPage} from '../modal/detail/detail.page';
 import {Router} from '@angular/router';
 
 import * as moment from 'moment';
+import {MedalPage} from '../modal/medal/medal.page';
 
 @Component({
-  selector: 'app-rank',
-  templateUrl: 'rank.page.html',
-  styleUrls: ['rank.page.scss']
+  selector: 'app-my',
+  templateUrl: 'my.page.html',
+  styleUrls: ['my.page.scss']
 })
-export class RankPage {
+export class MyPage {
   modal = null;
   viewMonth = moment(new Date()).format('YYYY-MM');
 
@@ -65,6 +66,22 @@ export class RankPage {
     console.log('e', e); // 전달되는 seq값을 아래 modal에 전달해줄 예정
     const modal = await this.modalC.create({
       component: DetailPage,
+      componentProps: {value: 123}
+    });
+
+    modal.onDidDismiss().then(dataReturned => {
+      if (dataReturned !== null) {
+        console.log('dataReturned', dataReturned);
+        // this.dataReturned = dataReturned.data;
+        // alert('Modal Sent Data :'+ dataReturned);
+      }
+    });
+
+    return await modal.present();
+  }
+  async presentModal2() {
+    const modal = await this.modalC.create({
+      component: MedalPage,
       componentProps: {value: 123}
     });
 

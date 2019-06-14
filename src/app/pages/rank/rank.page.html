@@ -55,8 +55,11 @@
           <span class="rank-number">{{ i + 1 }}</span>
         </div>
       </ion-thumbnail>
-      <ion-label>
-        {{ item.text }}
+      <ion-label style="font-size: 0.8em;">
+        <div class="clearfix">
+          <span style="float:left;">{{ item.text }}</span>
+          <span style="float:right;">1.11h</span>
+        </div>
       </ion-label>
     </ion-item>
   </ion-list>
@@ -79,14 +82,6 @@
   <ion-item>
     <ion-label>modal-detail</ion-label>
     <ion-button (click)="presentModal1()">
-      <ion-icon name="play"></ion-icon>
-    </ion-button>
-  </ion-item>
-  <ion-item>
-    <ion-label>
-      modal-report
-    </ion-label>
-    <ion-button (click)="presentModal2()">
       <ion-icon name="play"></ion-icon>
     </ion-button>
   </ion-item>
