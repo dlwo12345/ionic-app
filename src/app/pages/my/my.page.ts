@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 
 import * as moment from 'moment';
 import {MedalPage} from '../modal/medal/medal.page';
+import {SetPage} from '../modal/set/set.page';
 
 @Component({
   selector: 'app-my',
@@ -80,6 +81,22 @@ export class MyPage {
     return await modal.present();
   }
   async presentModal2() {
+    const modal = await this.modalC.create({
+      component: SetPage,
+      componentProps: {value: 123}
+    });
+
+    modal.onDidDismiss().then(dataReturned => {
+      if (dataReturned !== null) {
+        console.log('dataReturned', dataReturned);
+        // this.dataReturned = dataReturned.data;
+        // alert('Modal Sent Data :'+ dataReturned);
+      }
+    });
+
+    return await modal.present();
+  }
+  async presentModal3() {
     const modal = await this.modalC.create({
       component: MedalPage,
       componentProps: {value: 123}

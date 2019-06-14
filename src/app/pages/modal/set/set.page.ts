@@ -17,4 +17,8 @@ export class SetPage {
     const onClosedData = {};
     await this.modalC.dismiss(onClosedData);
   }
+
+  segmentChanged() {
+    console.log('segmentChanged');
+  }
 }

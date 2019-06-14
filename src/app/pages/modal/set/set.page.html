@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      일간 보고서
+      설정
     </ion-title>
     <ion-button
       slot="end"
@@ -16,15 +16,68 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-item lines="none">
-          <ion-label position="fixed">검색 월:</ion-label>
-          <ion-datetime display-format="YYYY-MM" [value]="test"></ion-datetime>
-        </ion-item>
-      </ion-col>
-      <ion-col></ion-col>
-    </ion-row>
-  </ion-grid>
+  <ion-item>
+    <ion-label position="stacked" class="title-label">발전소 이름</ion-label>
+    <ion-input placeholder="발전소 이름을 입력해주세요."></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked" class="title-label">용량</ion-label>
+    <ion-input placeholder="용량을 입력해주세요"></ion-input>
+  </ion-item>
+  <ion-item class="ion-margin-bottom">
+    <ion-label position="stacked" class="title-label">REC 가중치</ion-label>
+    <ion-input placeholder="REC 가중치를 입력해주세요"></ion-input>
+  </ion-item>
+
+  <ion-item-divider
+    style="font-weight: bold; font-size: 14px; background:none; border: none; color: black;"
+  >
+    <ion-label>
+      주소
+    </ion-label>
+  </ion-item-divider>
+
+  <ion-button class="ion-padding-horizontal" expand="full"
+    >주소검색</ion-button
+  >
+  <ion-item>
+    <ion-input readonly placeholder="주소를 검색해주세요."></ion-input>
+  </ion-item>
+  <ion-item class="ion-margin-bottom">
+    <ion-input placeholder="상세 주소를 입력해 주세요."></ion-input>
+  </ion-item>
+
+  <ion-item-divider
+    style="font-weight: bold; font-size: 14px; background:none; border: none; outline:none; color: black;"
+  >
+    <ion-label>
+      ESS 유무
+    </ion-label>
+  </ion-item-divider>
+  <ion-segment padding mode="ios" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="y" checked>
+      <ion-icon name="checkmark-circle-outline"></ion-icon>
+      <ion-label>유</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="n">
+      <ion-label>무</ion-label>
+      <ion-icon name="close-circle-outline"></ion-icon>
+    </ion-segment-button>
+  </ion-segment>
+  <ion-item>
+    <ion-input placeholder="ESS 용량을 입력해 주세요."></ion-input>
+  </ion-item>
+
+  <ion-button
+    class="ion-padding-horizontal"
+    style="margin: 30px 0px;"
+    expand="full"
+    >발전소 추가하기 +</ion-button
+  >
 </ion-content>
+
+<ion-footer>
+  <ion-button no-margin expand="full">
+    저장하기
+  </ion-button>
+</ion-footer>
