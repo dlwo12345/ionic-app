@@ -3,8 +3,8 @@ import * as moment from 'moment';
 import {NavParams, ModalController} from '@ionic/angular';
 @Component({
   selector: 'app-medal',
-  templateUrl: 'Medal.page.html',
-  styleUrls: ['Medal.page.scss']
+  templateUrl: 'medal.page.html',
+  styleUrls: ['medal.page.scss']
 })
 export class MedalPage {
   // "value" passed in componentProps
