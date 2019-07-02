@@ -4,6 +4,7 @@ import {NavParams, ModalController} from '@ionic/angular';
 import {MedalPage} from '../medal/medal.page';
 
 declare const Kakao: any;
+declare const ShareBand: any;
 
 @Component({
   selector: 'app-detail',
@@ -21,7 +22,7 @@ export class DetailPage implements OnInit {
   }
 
   ngOnInit() {
-    this.kakaoShare();
+    this.shareKakao();
   }
   async closeModal() {
     const onClosedData = {};
@@ -46,15 +47,15 @@ export class DetailPage implements OnInit {
     return await modal.present();
   }
 
-  kakaoShare() {
+  shareKakao() {
     Kakao.init('1b8992f588161a1d707ca7c5d660a5bf');
     Kakao.Link.createDefaultButton({
       container: '#kakao-link-btn',
       objectType: 'feed',
       installTalk: true,
       content: {
-        title: '태양광 발전현황',
-        description: '태양광 발전현황을 알아보자',
+        title: '홍길동님의 발전소',
+        description: '이번달엔 이렇게 발전이 되었습니다~~~~~~~',
         imageUrl:
           'http://mud-kage.kakao.co.kr/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
         link: {
@@ -72,5 +73,23 @@ export class DetailPage implements OnInit {
         }
       ]
     });
+  }
+
+  shareBand(content, url) {
+    content = content + ' ' + url;
+    const param = 'create/post?text=' + encodeURIComponent(content);
+    if (navigator.userAgent.match(/android/i)) {
+      setTimeout(() => {
+        location.href =
+          'intent://' + param + '#Intent;package=com.nhn.android.band;end';
+      }, 100);
+    } else if (navigator.userAgent.match(/(iphone)|(ipod)|(ipad)/i)) {
+      location.href = 'bandapp://' + param;
+    }
+
+    // 웹공유방식;
+    content = 'https://map.naver.com/?pinId=18821453&dlevel=11&enc=b64&pinType=site&y=4b5d9325eb8986da16391a0924e22e86&x=bb84cb4ba4c2740d594884d572586d21&spi_ref=m_map_band';
+    const shareUrl = 'http://www.band.us/plugin/share?body=' + encodeURIComponent(content);
+    window.open(shareUrl, 'ShareBand', 'width=410, height=540, resizable=no');
   }
 }
