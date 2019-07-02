@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import * as moment from 'moment';
 import {NavParams, ModalController} from '@ionic/angular';
 import {MedalPage} from '../medal/medal.page';
+
 declare const Kakao: any;
 
 @Component({
@@ -50,34 +51,23 @@ export class DetailPage implements OnInit {
     Kakao.Link.createDefaultButton({
       container: '#kakao-link-btn',
       objectType: 'feed',
+      installTalk: true,
       content: {
         title: '태양광 발전현황',
-        description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
+        description: '태양광 발전현황을 알아보자',
         imageUrl:
           'http://mud-kage.kakao.co.kr/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
         link: {
-          mobileWebUrl: 'https://developers.kakao.com',
-          webUrl: 'https://developers.kakao.com'
+          mobileWebUrl: 'http://192.168.2.202:8100/tabs/rank',
+          webUrl: 'http://192.168.2.202:8100/tabs/rank'
         }
-      },
-      social: {
-        likeCount: 286,
-        commentCount: 45,
-        sharedCount: 845
       },
       buttons: [
         {
-          title: '웹으로 보기',
+          title: '알아보러가기',
           link: {
-            mobileWebUrl: 'https://developers.kakao.com',
-            webUrl: 'https://developers.kakao.com'
-          }
-        },
-        {
-          title: '앱으로 보기',
-          link: {
-            mobileWebUrl: 'https://developers.kakao.com',
-            webUrl: 'https://developers.kakao.com'
+            mobileWebUrl: 'http://192.168.2.202:8100/tabs/rank',
+            webUrl: 'http://192.168.2.202:8100/tabs/rank'
           }
         }
       ]
