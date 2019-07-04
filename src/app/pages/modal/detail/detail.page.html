@@ -17,6 +17,27 @@
 
 <ion-content>
   <div id="chartdiv" style="width: 100%; height: 300px"></div>
+  <ion-fab margin horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button color="light">
+      <ion-icon name="share"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-fab-button
+        color="light"
+        (click)="shareBand('사이트명 - 페이지명', '페이지URL')"
+        href="javascript:void(0)"
+      >
+        <img src="/assets/icon/BAND_72.png" />
+      </ion-fab-button>
+      <ion-fab-button
+        color="light"
+        id="kakao-link-btn"
+        href="javascript:void(0)"
+      >
+        <img src="/assets/icon/kakaolink_btn_medium.png" />
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
   <ion-item lines="full">
     <ion-label position="stacked">5월 평균 발전시간</ion-label>
     <ion-input readonly>4.71 h</ion-input>
@@ -74,7 +95,7 @@
     </ion-input>
   </ion-item>
 </ion-content>
-<a id="kakao-link-btn" href="javascript:;">
+<!-- <a >
   <img
     src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
 /></a>
@@ -82,4 +103,4 @@
   (click)="shareBand('사이트명 - 페이지명', '페이지URL')"
   href="javascript:void(0)"
   >네이버밴드</a
->
+> -->

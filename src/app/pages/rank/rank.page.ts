@@ -37,53 +37,89 @@ export class RankPage {
    * 아이오닉 뷰 바인딩 이후
    */
   ionViewDidEnter() {
-    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+    const mapContainer = document.getElementById('map'), // 지도를 표시할 div
       mapOption = {
         center: new kakao.maps.LatLng(37.54699, 127.09598), // 지도의 중심좌표
-        level: 14 // 지도의 확대 레벨
+        level: 13 // 지도의 확대 레벨
       };
 
-    var map = new kakao.maps.Map(mapContainer, mapOption);
+    const map = new kakao.maps.Map(mapContainer, mapOption);
 
-    var imageSrc =
-        'http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png', // 마커이미지의 주소입니다
-      imageSize = new kakao.maps.Size(64, 69), // 마커이미지의 크기입니다
-      imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-
-    // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
-    var markerImage = new kakao.maps.MarkerImage(
-        imageSrc,
-        imageSize,
-        imageOption
-      ),
-      markerPosition = new kakao.maps.LatLng(37.54699, 127.09598); // 마커가 표시될 위치입니다
-
-    // 마커를 생성합니다
-    var marker = new kakao.maps.Marker({
-      position: markerPosition,
-      image: markerImage // 마커이미지 설정
-    });
-
-    // 마커가 지도 위에 표시되도록 설정합니다
-    marker.setMap(map);
-
+    const customOverlayList = [
+      {
+        position: new kakao.maps.LatLng(37.274399, 127.51605), // 커스텀 오버레이가 표시될 위치입니다
+        enterPosition: '경기도', // 참가 구분
+        number: 3 // 참가 인원
+      },
+      {
+        position: new kakao.maps.LatLng(37.686313, 127.059961), // 커스텀 오버레이가 표시될 위치입니다
+        enterPosition: '서울', // 참가 구분
+        number: 5 // 참가 인원
+      },
+      {
+        position: new kakao.maps.LatLng(37.379845, 126.626494), // 커스텀 오버레이가 표시될 위치입니다
+        enterPosition: '인천', // 참가 구분
+        number: 1 // 참가 인원
+      },
+      {
+        position: new kakao.maps.LatLng(37.461489, 128.963376), // 커스텀 오버레이가 표시될 위치입니다
+        enterPosition: '강원도', // 참가 구분
+        number: 1 // 참가 인원
+      },
+      {
+        position: new kakao.maps.LatLng(35.406111, 129.210556), // 커스텀 오버레이가 표시될 위치입니다
+        enterPosition: '경상도', // 참가 구분
+        number: 1 // 참가 인원
+      },
+      {
+        position: new kakao.maps.LatLng(35.14989, 126.625157), // 커스텀 오버레이가 표시될 위치입니다
+        enterPosition: '전라도', // 참가 구분
+        number: 1 // 참가 인원
+      },
+      {
+        position: new kakao.maps.LatLng(36.380507, 127.14494), // 커스텀 오버레이가 표시될 위치입니다
+        enterPosition: '충청도', // 참가 구분
+        number: 1 // 참가 인원
+      },
+      {
+        position: new kakao.maps.LatLng(33.343684, 126.541758), // 커스텀 오버레이가 표시될 위치입니다
+        enterPosition: '제주도', // 참가 구분
+        number: 1 // 참가 인원
+      }
+    ];
     // 커스텀 오버레이에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-    var content = `<div class="customoverlay">
-        <a href="https://map.kakao.com/link/map/11394059" target="_blank">
-          <span class="title">경기도 <span style="color:red;">3건</span></span>
-        </a>
-      </div>`;
+    // const content = `<div class="customoverlay">
+    //     <a href="javascript:void(0)" target="_blank">
+    //       <span class="title">경기도<br><span style="color:red;">3건</span></span>
+    //     </a>
+    //   </div>`;
 
     // 커스텀 오버레이가 표시될 위치입니다
-    var position = new kakao.maps.LatLng(37.54699, 127.09598);
+    // const position = new kakao.maps.LatLng(37.316275, 127.609132);
 
-    // 커스텀 오버레이를 생성합니다
-    var customOverlay = new kakao.maps.CustomOverlay({
-      map: map,
-      position: position,
-      content: content,
-      yAnchor: 1
+    customOverlayList.forEach(v => {
+      const itemContent = `<div class="customoverlay">
+                            <a href="javascript:void(0)" target="_blank">
+                              <span class="title">${v.enterPosition}<br>
+                                <span style="color:red;">${v.number}건</span>
+                              </span>
+                            </a>
+                           </div>`;
+      const customOverlay = new kakao.maps.CustomOverlay({
+        map,
+        position: v.position,
+        content: itemContent,
+        yAnchor: 1
+      });
+      customOverlay.setMap(map);
     });
+    // 커스텀 오버레이를 생성합니다
+    // const customOverlay = new kakao.maps.CustomOverlay({
+    //   map,
+    //   position,
+    //   content,
+    //   yAnchor: 1
+    // });
   }
 
   apiTest() {

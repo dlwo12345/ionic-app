@@ -1,5 +1,5 @@
 // http://ionicframework.com/docs/theming/
-@import url(https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700&subset=korean);
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700&subset=korean');
 @import './assets/css/reset.css';
 @import '~@ionic/angular/css/core.css';
 @import '~@ionic/angular/css/normalize.css';
@@ -13,48 +13,42 @@
 @import '~@ionic/angular/css/flex-utils.css';
 
 .customoverlay {
-    position: relative;
-    bottom: 85px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    border-bottom: 2px solid #ddd;
-    float: left;
-  }
-  .customoverlay:nth-of-type(n) {
-    border: 0;
-    box-shadow: 0px 1px 2px #888;
-  }
-  .customoverlay a {
-    display: block;
-    text-decoration: none;
-    color: #000;
-    text-align: center;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: bold;
-    overflow: hidden;
-    background: #d95050;
-    background: #d95050
-      url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png)
-      no-repeat right 14px center;
-  }
-  .customoverlay .title {
-    display: block;
-    text-align: center;
-    background: #fff;
-    margin-right: 35px;
-    padding: 10px 15px;
-    font-size: 14px;
-    font-weight: bold;
-  }
-  .customoverlay:after {
-    content: '';
-    position: absolute;
-    margin-left: -12px;
-    left: 50%;
-    bottom: -12px;
-    width: 22px;
-    height: 12px;
-    background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png');
-  }
-  
+  position: relative;
+  bottom: 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  border-bottom: 2px solid #ddd;
+  float: left;
+}
+.customoverlay:nth-of-type(n) {
+  border: 0;
+  box-shadow: 0px 1px 2px #888;
+}
+.customoverlay a {
+  display: block;
+  text-decoration: none;
+  color: #000;
+  text-align: center;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  overflow: hidden;
+}
+.customoverlay .title {
+  display: block;
+  text-align: center;
+  background: #fff;
+  padding: 2px 5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.customoverlay:after {
+  content: '';
+  position: absolute;
+  margin-left: -12px;
+  left: 50%;
+  bottom: -12px;
+  width: 22px;
+  height: 12px;
+  background: url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png');
+}

@@ -8,9 +8,9 @@
 
 <div style="margin: 0.5em auto 0 auto;">
   <ion-buttons>
-    <ion-button color="medium" (click)="changeMonth('left')">
+    <!-- <ion-button color="medium" (click)="changeMonth('left')">
       <ion-icon size="large" name="arrow-round-back"></ion-icon>
-    </ion-button>
+    </ion-button> -->
     <ion-datetime
       padding
       style="font-size: 1.5em;"
@@ -20,6 +20,7 @@
       done-text="완료"
       [value]="viewMonth"
       (ionChange)="changeMonth('select', $event)"
+      min="2019-08"
     ></ion-datetime>
     <ion-button color="medium" (click)="changeMonth('right')">
       <ion-icon size="large" name="arrow-round-forward"></ion-icon>
@@ -100,4 +101,4 @@
 </ion-list> -->
 
 
-<div id="map" style="width:500px; height: 400px;"></div>
+<!-- <div id="map" style="width:500px; height: 400px;"></div> -->

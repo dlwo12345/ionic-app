@@ -54,19 +54,19 @@ export class DetailPage implements OnInit, AfterViewInit, OnDestroy {
 
       // Add data
       chart.data = [
-        {country: '1-1', visits: 2025},
-        {country: '1-2', visits: 1882},
-        {country: '1-3', visits: 1809},
-        {country: '1-4', visits: 1322},
-        {country: '1-5', visits: 1122},
-        {country: '1-6', visits: 1114},
-        {country: '1-7', visits: 984},
-        {country: '1-8', visits: 711},
-        {country: '1-9', visits: 665},
-        {country: '1-10', visits: 580},
-        {country: '1-11', visits: 443},
-        {country: '1-12', visits: 441},
-        {country: '1-13', visits: 395}
+        {country: '가', visits: 2025},
+        {country: '나', visits: 1882},
+        {country: '다', visits: 1809},
+        {country: '라', visits: 1322},
+        {country: '마', visits: 1122},
+        {country: '바', visits: 1114},
+        {country: '사', visits: 984},
+        {country: '아', visits: 711},
+        {country: '자', visits: 665},
+        {country: '차', visits: 580},
+        {country: '타', visits: 443},
+        {country: '카', visits: 441},
+        {country: '파', visits: 395}
       ];
 
       // Create axes
