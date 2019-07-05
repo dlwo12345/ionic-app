@@ -12,8 +12,7 @@
       <ion-icon size="large" name="arrow-round-back"></ion-icon>
     </ion-button> -->
     <ion-datetime
-      padding
-      style="font-size: 1.5em;"
+      style="font-size: 1.5em; padding-right: 20px;"
       mode="ios"
       display-format="YYYY-MM"
       cancelText="취소"
@@ -22,9 +21,9 @@
       (ionChange)="changeMonth('select', $event)"
       min="2019-08"
     ></ion-datetime>
-    <ion-button color="medium" (click)="changeMonth('right')">
+    <!-- <ion-button color="medium" (click)="changeMonth('right')">
       <ion-icon size="large" name="arrow-round-forward"></ion-icon>
-    </ion-button>
+    </ion-button> -->
   </ion-buttons>
 </div>
 
@@ -65,7 +64,6 @@
       </ion-label>
     </ion-item>
   </ion-list>
-  
 </ion-content>
 
 <ion-footer>
@@ -99,6 +97,3 @@
     <ion-input placeholder="값 테스트"></ion-input>
   </ion-item>
 </ion-list> -->
-
-
-<!-- <div id="map" style="width:500px; height: 400px;"></div> -->
