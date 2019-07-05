@@ -29,6 +29,16 @@ const routes: Routes = [
             loadChildren: '../my/my.module#MyPageModule'
           }
         ]
+      },
+      {
+        path: 'currentstate',
+        children: [
+          {
+            path: '',
+            loadChildren:
+              '../current-state/current-state.module#CurrentStatePageModule'
+          }
+        ]
       }
     ]
   },
