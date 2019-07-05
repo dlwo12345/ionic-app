@@ -30,3 +30,9 @@ ol {
 .medal-text {
   font-weight: bold;
 }
+
+.clearfix:after{
+  content: "";
+  display: block;
+  clear: both;
+}

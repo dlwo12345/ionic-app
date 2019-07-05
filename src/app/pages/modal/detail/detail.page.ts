@@ -48,6 +48,7 @@ export class DetailPage implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
+    this.shareKakao();
     this.zone.runOutsideAngular(() => {
       // Create chart instance
       let chart = am4core.create('chartdiv', am4charts.XYChart);
@@ -92,7 +93,7 @@ export class DetailPage implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.shareKakao();
+    
   }
 
   async closeModal() {

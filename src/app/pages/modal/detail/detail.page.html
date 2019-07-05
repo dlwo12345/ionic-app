@@ -25,51 +25,52 @@
       <ion-fab-button
         color="light"
         (click)="shareBand('사이트명 - 페이지명', '페이지URL')"
-        href="javascript:void(0)"
       >
         <img src="/assets/icon/BAND_72.png" />
       </ion-fab-button>
       <ion-fab-button
         color="light"
         id="kakao-link-btn"
-        href="javascript:void(0)"
       >
         <img src="/assets/icon/kakaolink_btn_medium.png" />
       </ion-fab-button>
     </ion-fab-list>
   </ion-fab>
   <ion-item lines="full">
-    <ion-label position="stacked">5월 평균 발전시간</ion-label>
-    <ion-input readonly>4.71 h</ion-input>
+    <ion-label>5월 평균 발전시간</ion-label>
+    <ion-text>4.71 h</ion-text>
   </ion-item>
   <ion-item lines="full">
-    <ion-label position="stacked">위치</ion-label>
-    <ion-input readonly>전라남도 신안군</ion-input>
+    <ion-label>위치</ion-label>
+    <ion-text>전라남도 신안군</ion-text>
   </ion-item>
   <ion-item lines="full">
-    <ion-label position="stacked">용량</ion-label>
-    <ion-input readonly>99 kWp</ion-input>
+    <ion-label>용량</ion-label>
+    <ion-text>99 kWp</ion-text>
   </ion-item>
   <ion-item lines="full" [ngSwitch]="premiumAuth">
-    <ion-label position="stacked">SPEC</ion-label>
-    <ng-container *ngSwitchCase="true">
-      <ion-input readonly>모듈 : ABCDEFG 300</ion-input>
-      <ion-input readonly>인버터 : ABCDEFG 300</ion-input>
+    <ion-label>SPEC</ion-label>
+    <ng-container *ngSwitchCase="false">
+      <ion-text style="text-align: right;">
+        <p>모듈 : ABCDEFG 300</p>
+        <p>인버터 : ABCDEFG 300</p>
+      </ion-text>
+      <!-- <ion-text></ion-text> -->
     </ng-container>
-    <ion-input color="medium" *ngSwitchCase="false" readonly>
+    <ion-text color="medium" *ngSwitchCase="true">
       발전소 정보 등록 후 열람 가능합니다.
-    </ion-input>
+    </ion-text>
   </ion-item>
   <ion-item lines="full">
-    <ion-label position="stacked">연식</ion-label>
-    <ion-input readonly>2017년 5월 부터 운영 중. 만 2년</ion-input>
+    <ion-label>연식</ion-label>
+    <ion-text>2017년 5월 부터 운영 중. 만 2년</ion-text>
   </ion-item>
   <ion-item lines="full" [ngSwitch]="premiumAuth" style="margin-bottom: 1px;">
-    <ion-label position="stacked">수익금</ion-label>
-    <ion-input *ngSwitchCase="true" readonly>2,350,000 원</ion-input>
-    <ion-input color="medium" *ngSwitchCase="false" readonly>
+    <ion-label>수익금</ion-label>
+    <ion-text *ngSwitchCase="true">2,350,000 원</ion-text>
+    <ion-text color="medium" *ngSwitchCase="false">
       발전소 정보 등록 후 열람 가능합니다.
-    </ion-input>
+    </ion-text>
   </ion-item>
   <ion-list
     lines="full"
@@ -88,19 +89,10 @@
     </ion-text>
   </ion-list>
   <ion-item lines="full" [ngSwitch]="premiumAuth">
-    <ion-label position="stacked">시공사</ion-label>
-    <ion-input *ngSwitchCase="true" readonly>솔라커넥트</ion-input>
-    <ion-input color="medium" *ngSwitchCase="false" readonly>
+    <ion-label>시공사</ion-label>
+    <ion-text *ngSwitchCase="true">솔라커넥트</ion-text>
+    <ion-text color="medium" *ngSwitchCase="false">
       발전소 정보 등록 후 열람 가능합니다.
-    </ion-input>
+    </ion-text>
   </ion-item>
 </ion-content>
-<!-- <a >
-  <img
-    src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
-/></a>
-<a
-  (click)="shareBand('사이트명 - 페이지명', '페이지URL')"
-  href="javascript:void(0)"
-  >네이버밴드</a
-> -->
