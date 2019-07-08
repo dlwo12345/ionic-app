@@ -17,9 +17,6 @@ import {ShareSnsService} from 'src/app/shared/services/share-sns.service';
 
 am4core.useTheme(am4themes_animated);
 
-declare const Kakao: any; // 카카오 API SDK
-declare const ShareBand: any; // 밴드
-
 @Component({
   selector: 'app-detail',
   templateUrl: 'detail.page.html',

@@ -3,13 +3,18 @@ import {Injectable} from '@angular/core';
 declare const Kakao: any; // 카카오 API SDK
 declare const ShareBand: any; // 밴드
 
-@Injectable()
+@Injectable({
+  providedIn: 'root' // 모든 페이지에서 공통으로 사용하기위해 provide root로 설정
+})
 export class ShareSnsService {
   kakaoInit = false; // 카카오 init 여부
-  constructor() {}
+  constructor() {
+    console.log('init', this.kakaoInit);
+  }
 
   shareKakao(option?: any) {
     if (!this.kakaoInit) {
+      console.log('init11111111');
       Kakao.init('1b8992f588161a1d707ca7c5d660a5bf');
       this.kakaoInit = true;
     }

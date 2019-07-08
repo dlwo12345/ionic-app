@@ -5,7 +5,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpInterceptorService} from './services/http-interceptor.service';
 import {IonicModule} from '@ionic/angular';
 import {LoadingService} from './services/loading.service';
-import { ShareSnsService } from './services/share-sns.service';
+import {ShareSnsService} from './services/share-sns.service';
 
 @NgModule({
   imports: [
@@ -23,8 +23,7 @@ import { ShareSnsService } from './services/share-sns.service';
       useClass: HttpInterceptorService,
       multi: true
     },
-    LoadingService,
-    ShareSnsService,
+    LoadingService
   ],
   exports: [
     CommonModule,
