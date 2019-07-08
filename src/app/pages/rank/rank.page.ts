@@ -97,6 +97,9 @@ export class RankPage {
     }
 
     this.ionRefresh(); // 임시.. data reload api 호출 필요
+
+    // touch stop 이벤트 오류 방지 return
+    return true;
   }
 
   async ionRefresh(event?) {

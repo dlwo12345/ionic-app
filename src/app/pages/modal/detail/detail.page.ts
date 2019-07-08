@@ -13,6 +13,7 @@ import {MedalPage} from '../medal/medal.page';
 import * as am4core from '@amcharts/amcharts4/core';
 import * as am4charts from '@amcharts/amcharts4/charts';
 import am4themes_animated from '@amcharts/amcharts4/themes/animated';
+import {ShareSnsService} from 'src/app/shared/services/share-sns.service';
 
 am4core.useTheme(am4themes_animated);
 
@@ -33,7 +34,8 @@ export class DetailPage implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     private navParams: NavParams,
     private modalC: ModalController,
-    private zone: NgZone
+    private zone: NgZone,
+    public ShareSnsS: ShareSnsService
   ) {
     // componentProps can also be accessed at construction time using NavParams
     console.log('navParams', navParams);
@@ -48,7 +50,7 @@ export class DetailPage implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    this.shareKakao();
+    this.ShareSnsS.shareKakao();
     this.zone.runOutsideAngular(() => {
       // Create chart instance
       let chart = am4core.create('chartdiv', am4charts.XYChart);
@@ -92,9 +94,7 @@ export class DetailPage implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 
   async closeModal() {
     const onClosedData = {};
@@ -117,54 +117,5 @@ export class DetailPage implements OnInit, AfterViewInit, OnDestroy {
     });
 
     return await modal.present();
-  }
-
-  shareKakao() {
-    Kakao.init('1b8992f588161a1d707ca7c5d660a5bf');
-    Kakao.Link.createDefaultButton({
-      container: '#kakao-link-btn',
-      objectType: 'feed',
-      installTalk: true,
-      content: {
-        title: '홍길동님의 발전소',
-        description:
-          '이번달엔 이렇게 발전이 되었습니다~~~~~~~이번달엔 이렇게 발전이 되었습니다~~~~~~~',
-        imageUrl:
-          'http://mud-kage.kakao.co.kr/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
-        link: {
-          mobileWebUrl: 'http://192.168.2.202:8100/tabs/my',
-          webUrl: 'http://192.168.2.202:8100/tabs/my'
-        }
-      },
-      buttons: [
-        {
-          title: '알아보러가기',
-          link: {
-            mobileWebUrl: 'http://192.168.2.202:8100/tabs/rank',
-            webUrl: 'http://192.168.2.202:8100/tabs/rank'
-          }
-        }
-      ]
-    });
-  }
-
-  shareBand(content, url) {
-    content = content + ' ' + url;
-    const param = 'create/post?text=' + encodeURIComponent(content);
-    if (navigator.userAgent.match(/android/i)) {
-      setTimeout(() => {
-        location.href =
-          'intent://' + param + '#Intent;package=com.nhn.android.band;end';
-      }, 100);
-    } else if (navigator.userAgent.match(/(iphone)|(ipod)|(ipad)/i)) {
-      location.href = 'bandapp://' + param;
-    }
-
-    // 웹공유방식;
-    content =
-      'https://map.naver.com/?pinId=18821453&dlevel=11&enc=b64&pinType=site&y=4b5d9325eb8986da16391a0924e22e86&x=bb84cb4ba4c2740d594884d572586d21&spi_ref=m_map_band';
-    const shareUrl =
-      'http://www.band.us/plugin/share?body=' + encodeURIComponent(content);
-    window.open(shareUrl, 'ShareBand', 'width=410, height=540, resizable=no');
   }
 }
