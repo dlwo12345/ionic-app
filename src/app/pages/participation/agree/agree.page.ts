@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {NavigationExtras, Router} from '@angular/router';
-import {NavController} from '@ionic/angular';
+import {NavController, AlertController} from '@ionic/angular';
 
 @Component({
   selector: 'app-agree',
@@ -13,7 +13,8 @@ export class AgreePage implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     public router: Router,
-    public navC: NavController
+    public navC: NavController,
+    public alertC: AlertController
   ) {
     this.createForm();
   }
@@ -29,7 +30,13 @@ export class AgreePage implements OnInit {
 
   next() {
     if (this.agreeForm.invalid) {
-      return alert('미동의 약관이 있습니다');
+      return this.alertC
+        .create({
+          header: '알림',
+          message: '미동의 약관이 있습니다',
+          buttons: ['OK']
+        })
+        .then(res => res.present());
     }
 
     const navigationExtras: NavigationExtras = {

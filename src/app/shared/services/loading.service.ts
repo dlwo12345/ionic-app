@@ -5,11 +5,11 @@ import {LoadingController} from '@ionic/angular';
 export class LoadingService {
   isLoading = false;
 
-  constructor(public loadingController: LoadingController) {}
+  constructor(public loadingC: LoadingController) {}
 
   async show() {
     this.isLoading = true;
-    return await this.loadingController
+    return await this.loadingC
       .create({
         message: 'loading...'
       })
@@ -25,8 +25,6 @@ export class LoadingService {
 
   async hide() {
     this.isLoading = false;
-    return await this.loadingController
-      .dismiss()
-      .then(() => console.log('dismissed'));
+    return await this.loadingC.dismiss().then(() => console.log('dismissed'));
   }
 }

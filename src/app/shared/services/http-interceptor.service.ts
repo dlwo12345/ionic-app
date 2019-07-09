@@ -17,7 +17,7 @@ export class HttpInterceptorService implements HttpInterceptor {
 
   constructor(
     private loaderS: LoadingService,
-    private alertS: AlertController
+    private alertC: AlertController
   ) {}
 
   /**
@@ -53,14 +53,13 @@ export class HttpInterceptorService implements HttpInterceptor {
         event => {
           if (event instanceof HttpResponse) {
             if (exceptionCheck && !event.body.success) {
-              this.alertS
+              this.alertC
                 .create({
                   header: '알림',
                   message: event.body.message || 'error',
                   buttons: ['OK']
                 })
                 .then(res => res.present());
-              // alert(event.body.message || 'error');
               return;
             }
             this.removeRequest(request);
@@ -69,14 +68,13 @@ export class HttpInterceptorService implements HttpInterceptor {
         },
         err => {
           if (err instanceof HttpErrorResponse) {
-            this.alertS
+            this.alertC
               .create({
                 header: '알림',
                 message: err.message || 'error',
                 buttons: ['OK']
               })
               .then(res => res.present());
-            // alert(err.message || 'error');
             this.removeRequest(request);
             observer.error(err);
           }

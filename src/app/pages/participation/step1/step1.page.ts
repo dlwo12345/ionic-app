@@ -17,14 +17,21 @@ export class Step1Page implements OnInit, OnDestroy {
     public navC: NavController,
     private route: ActivatedRoute,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    public alertC: AlertController
   ) {
     this.createForm();
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.data = this.router.getCurrentNavigation().extras.state;
       } else {
-        alert('비정상적인 접근방법입니다. 초기페이지로 이동합니다');
+        this.alertC
+          .create({
+            header: '알림',
+            message: '비정상적인 접근방법입니다. 초기페이지로 이동합니다',
+            buttons: ['OK']
+          })
+          .then(res => res.present());
         this.navC.navigateBack('/participation/agree');
       }
     });
@@ -58,22 +65,40 @@ export class Step1Page implements OnInit, OnDestroy {
     const formData = this.step1Form.getRawValue(); // 현재 데이터
     const originalData = defaultStep1Model; // 초기 데이터
     if (nextState.url === '/participation/step2' && !this.step1Form.invalid) {
-      // 정상적으로 입력 후 다음버튼 눌렀을때F
-      alert('canDeactivate 정상진행');
+      // 정상적으로 입력 후 다음버튼 눌렀을때
+      this.alertC
+        .create({
+          header: '알림',
+          message: 'canDeactivate 정상진행',
+          buttons: ['OK']
+        })
+        .then(res => res.present());
       return true;
     } else if (
       nextState.url !== '/participation/step2' &&
       ObjectUtil.equals(formData, originalData)
     ) {
       // 수정사항이 없는 상태에서 빠져나갈때
-      alert('canDeactivate 수정사항 없음 빠져나가자');
+      this.alertC
+        .create({
+          header: '알림',
+          message: 'canDeactivate 수정사항 없음 빠져나가자',
+          buttons: ['OK']
+        })
+        .then(res => res.present());
       return true;
     } else if (
       nextState.url !== '/participation/step2' &&
       !ObjectUtil.equals(formData, originalData) &&
       confirm('저장되지 않은 정보가 있습니다. 빠져나가시겠습니까?')
     ) {
-      alert('저장안하고 빠져나가기');
+      this.alertC
+        .create({
+          header: '알림',
+          message: '저장안하고 빠져나가기',
+          buttons: ['OK']
+        })
+        .then(res => res.present());
       return true;
     }
     return false;
