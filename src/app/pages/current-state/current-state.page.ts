@@ -29,9 +29,9 @@ export class CurrentStatePage {
     const mapContainer = document.getElementById('map'), // 지도를 표시할 div
       mapOption = {
         center: new kakao.maps.LatLng(36.407263, 128.099706), // 지도의 중심좌표
-        draggable: false,
+        draggable: true,
         disableDoubleClickZoom: true,
-        level: 14 // 지도의 확대 레벨
+        level: 13 // 지도의 확대 레벨
       };
 
     const map = new kakao.maps.Map(mapContainer, mapOption);

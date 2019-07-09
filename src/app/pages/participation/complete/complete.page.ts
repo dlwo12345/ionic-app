@@ -14,4 +14,8 @@ export class CompletePage implements OnInit {
   goMain() {
     this.navC.navigateBack('/tabs/rank');
   }
+
+  close() {
+    this.navC.navigateBack('/tabs/rank');
+  }
 }

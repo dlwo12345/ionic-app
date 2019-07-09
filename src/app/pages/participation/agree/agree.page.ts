@@ -1,7 +1,7 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
-import {Subscription} from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import {NavigationExtras, Router} from '@angular/router';
 import {NavController} from '@ionic/angular';
-import {FormGroup, FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-agree',
@@ -10,7 +10,11 @@ import {FormGroup, FormBuilder} from '@angular/forms';
 })
 export class AgreePage implements OnInit {
   agreeForm: FormGroup;
-  constructor(public navC: NavController, private formBuilder: FormBuilder) {
+  constructor(
+    private formBuilder: FormBuilder,
+    public router: Router,
+    public navC: NavController
+  ) {
     this.createForm();
   }
 
@@ -18,36 +22,24 @@ export class AgreePage implements OnInit {
 
   createForm(formData?: any) {
     this.agreeForm = this.formBuilder.group({
-      agree1: true,
-      agree2: true
+      agree1: [false, Validators.requiredTrue],
+      agree2: [false, Validators.requiredTrue]
     });
   }
 
-  /**
-   * 모든 약관 동의여부 체크
-   * 모두 동의o -> return true
-   * 모두 동의x -> return false
-   */
-  agreeCheck() {
-    // form data list
-    const target = this.agreeForm.controls;
-    for (const i in target) {
-      if (target.hasOwnProperty(i)) {
-        const value = target[i].value; // 개별 아이템 value
-        if (!value) {
-          // false 값이 있으면 false 반환
-          return false;
-        }
-      }
+  next() {
+    if (this.agreeForm.invalid) {
+      return alert('미동의 약관이 있습니다');
     }
-    return true;
+
+    const navigationExtras: NavigationExtras = {
+      state: this.agreeForm.getRawValue()
+    };
+
+    this.router.navigate(['participation', 'step1'], navigationExtras);
   }
 
-  next() {
-    if (!this.agreeCheck()) {
-      alert('미동의 약관이 있습니다');
-    }
-
-    this.navC.navigateForward('/participation/step1');
+  close() {
+    this.navC.navigateBack('/tabs/rank');
   }
 }

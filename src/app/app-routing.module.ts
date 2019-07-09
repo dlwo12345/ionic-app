@@ -17,7 +17,7 @@ const routes: Routes = [
       },
       {
         path: 'step1',
-        loadChildren: './pages/participation/step1/step1.module#Step1PageModule'
+        loadChildren: './pages/participation/step1/step1.module#Step1PageModule',
       },
       {
         path: 'step2',

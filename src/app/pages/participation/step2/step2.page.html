@@ -1,13 +1,15 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>발전왕 참가하기 - step2</ion-title>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/participation/step1"></ion-back-button>
+    <ion-buttons slot="end">
+      <ion-button shape="round" (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [formGroup]="step2Form" (ngSubmit)="$event.preventDefault()">
   <ion-grid>
     <ion-row class="ion-text-center">
       <ion-col>
@@ -39,6 +41,7 @@
     okText="확인"
     cancelText="취소"
     style="border-bottom: 1px solid #dedede;"
+    formControlName="monitoringName"
   >
     <ion-select-option value="brown">제품1</ion-select-option>
     <ion-select-option value="blonde">제품2</ion-select-option>
@@ -46,7 +49,10 @@
     <ion-select-option value="red">제품4</ion-select-option>
   </ion-select>
   <ion-item>
-    <ion-input placeholder="모니터링 서비스 URL을 입력해 주세요."></ion-input>
+    <ion-input
+      placeholder="모니터링 서비스 URL을 입력해 주세요."
+      formControlName="monitoringUrl"
+    ></ion-input>
   </ion-item>
   <pre style="font-size: 0.75em;">
   ※ 목록에 없는 모니터링 서비스는 '기타'를 선택해주세요.
@@ -62,7 +68,12 @@
   </ion-item>
 </ion-content>
 <ion-footer no-border>
-  <ion-button no-margin expand="full" (click)="next()">
+  <ion-button
+    no-margin
+    expand="full"
+    [disabled]="this.step2Form.invalid"
+    (click)="next()"
+  >
     다음
   </ion-button>
 </ion-footer>
