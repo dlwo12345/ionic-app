@@ -1,0 +1,74 @@
+ion-datetime {
+  padding-right: 20px;
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0px;
+    top: 48%;
+    width: 13px;
+    height: 13px;
+    background-image: url(/assets/icon/ico_select_arrow_black.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+}
+.custom {
+  ion-thumbnail {
+    .rank-wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      .rank-number {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        text-align: center;
+        border: 1px solid gray;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 0.8em;
+        z-index: 2;
+        background: white;
+      }
+
+      ion-icon {
+        position: absolute;
+        top: 5px;
+        left: 13.3px;
+        font-size: 1.8em;
+      }
+    }
+  }
+
+  // 1등
+  &:nth-of-type(1) {
+    .rank-number {
+      top: 57% !important;
+    }
+    ion-icon {
+      color: #f4d172;
+    }
+  }
+  // 2등
+  &:nth-of-type(2) {
+    .rank-number {
+      top: 57% !important;
+    }
+    ion-icon {
+      color: #a1aaac;
+    }
+  }
+  // 3등
+  &:nth-of-type(3) {
+    .rank-number {
+      top: 57% !important;
+    }
+    ion-icon {
+      color: #c58d56;
+    }
+  }
+}

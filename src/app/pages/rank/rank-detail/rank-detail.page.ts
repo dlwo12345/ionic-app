@@ -1,17 +1,17 @@
-import {Component, AfterViewInit, ViewEncapsulation} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {AlertController, ModalController} from '@ionic/angular';
-import {DetailPage} from '../modal/detail/detail.page';
+import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 
 import * as moment from 'moment';
+import {AlertController, ModalController, NavController} from '@ionic/angular';
+import {HttpClient} from '@angular/common/http';
+import {DetailPage} from '../../modal/detail/detail.page';
 
 @Component({
-  selector: 'app-rank',
-  templateUrl: 'rank.page.html',
-  styleUrls: ['rank.page.scss']
+  selector: 'app-rank-detail',
+  templateUrl: 'rank-detail.page.html',
+  styleUrls: ['rank-detail.page.scss']
 })
-export class RankPage {
+export class RankDetailPage {
   modal = null;
   viewMonth = moment(new Date()).format('YYYY-MM');
 
@@ -21,7 +21,8 @@ export class RankPage {
     public http: HttpClient,
     public alertC: AlertController,
     public modalC: ModalController,
-    public router: Router
+    public router: Router,
+    public navC: NavController
   ) {
     // 초기 데이터 call
     this.loadData();
@@ -30,6 +31,16 @@ export class RankPage {
     // 발전소 참가신청 필요 상태 - 미신청, 요청중, 참가중
     // 참가중일때 내 발전소에 대한 정보 필요
   }
+
+  // apiTest() {
+  //   this.http.get('/assets/test.json', {}).subscribe(res => {
+  //     console.log('res', res);
+  //   });
+  //   // const alert = this.alertC.create({message:'123'});
+  //   // alert.then(res=>{
+  //   //   res.present();
+  //   // })
+  // }
 
   // api call
   loadData() {
@@ -45,6 +56,10 @@ export class RankPage {
       console.log('로드완료', res);
       this.testArr = res.data;
     });
+  }
+
+  goAllData() {
+    this.navC.navigateForward('/tabs/rank/map');
   }
 
   async presentModal1(e) {
@@ -67,16 +82,16 @@ export class RankPage {
 
   changeMonth(type?: string, time?: any) {
     switch (type) {
-      // case 'left':
-      //   this.viewMonth = moment(this.viewMonth)
-      //     .add(-1, 'month')
-      //     .format('YYYY-MM');
-      //   break;
-      // case 'right':
-      //   this.viewMonth = moment(this.viewMonth)
-      //     .add(1, 'month')
-      //     .format('YYYY-MM');
-      //   break;
+      case 'left':
+        this.viewMonth = moment(this.viewMonth)
+          .add(-1, 'month')
+          .format('YYYY-MM');
+        break;
+      case 'right':
+        this.viewMonth = moment(this.viewMonth)
+          .add(1, 'month')
+          .format('YYYY-MM');
+        break;
       case 'select':
         this.viewMonth = moment(time.detail.value).format('YYYY-MM');
         break;

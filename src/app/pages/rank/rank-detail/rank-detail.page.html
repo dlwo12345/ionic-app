@@ -1,27 +1,21 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      발전왕
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<ion-toolbar margin-vertical>
+  <ion-button fill="clear" color="medium" slot="start" (click)="goAllData()">
+    <ion-icon name="arrow-dropleft"></ion-icon>전국
+  </ion-button>
+  <!-- <ion-datetime
+    style="font-weight:bold; padding-right: 20px;"
+    mode="ios"
+    display-format="YYYY-MM"
+    cancelText="취소"
+    done-text="완료"
+    [value]="viewMonth"
+    (ionChange)="changeMonth('select', $event)"
+    min="2019-08"
+    slot="start"
+  ></ion-datetime> -->
+  <p margin-end style="font-size: 12px;" slot="end">07월 31일 08:00 집계</p>
+</ion-toolbar>
 <ion-content>
-  <ion-router-outlet></ion-router-outlet>
-  <!-- <ion-toolbar margin-vertical>
-    <ion-datetime
-      style="font-weight:bold; padding-right: 20px;"
-      mode="ios"
-      display-format="YYYY-MM"
-      cancelText="취소"
-      done-text="완료"
-      [value]="viewMonth"
-      (ionChange)="changeMonth('select', $event)"
-      min="2019-08"
-      slot="start"
-    ></ion-datetime>
-    <p margin-end style="font-size: 12px;" slot="end">07월 31일 08:00 집계</p>
-  </ion-toolbar>
   <ion-refresher
     slot="fixed"
     (ionRefresh)="ionRefresh($event)"
@@ -57,12 +51,5 @@
         </div>
       </ion-label>
     </ion-item>
-  </ion-list> -->
+  </ion-list>
 </ion-content>
-
-<ion-footer>
-  <!-- 현재 나의 신청 상태에 1.미신청, 2.참가요청중, 3.내발전소 정보를 표시해줘야함 -->
-  <ion-button no-margin routerLink="/participation/agree" expand="full"
-    >발전왕 참가하기</ion-button
-  >
-</ion-footer>
