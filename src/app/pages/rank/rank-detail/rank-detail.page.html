@@ -1,20 +1,43 @@
-<ion-toolbar margin-vertical>
-  <ion-button fill="clear" color="medium" slot="start" (click)="goAllData()">
-    <ion-icon name="arrow-dropleft"></ion-icon>전국
-  </ion-button>
-  <!-- <ion-datetime
-    style="font-weight:bold; padding-right: 20px;"
-    mode="ios"
-    display-format="YYYY-MM"
-    cancelText="취소"
-    done-text="완료"
-    [value]="viewMonth"
-    (ionChange)="changeMonth('select', $event)"
-    min="2019-08"
-    slot="start"
-  ></ion-datetime> -->
-  <p margin-end style="font-size: 12px;" slot="end">07월 31일 08:00 집계</p>
-</ion-toolbar>
+<ion-header>
+  <ion-toolbar>
+    <ion-button
+      fill="clear"
+      color="medium"
+      slot="start"
+      shape="round"
+      (click)="goAllData()"
+    >
+      <ion-icon mode="ios" name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-title>
+      경기도 발전왕
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar style="padding-left: 15px; padding-right: 15px;">
+    <ion-select
+      placeholder="8월 리그"
+      okText="확인"
+      cancelText="취소"
+      slot="start"
+    >
+      <ion-select-option value="brown">8월 리그</ion-select-option>
+      <ion-select-option value="blonde">9월 리그</ion-select-option>
+    </ion-select>
+    <!-- <ion-datetime
+        style="font-weight:bold; padding-right: 20px;"
+        mode="ios"
+        display-format="YYYY-MM"
+        cancelText="취소"
+        done-text="완료"
+        [value]="viewMonth"
+        (ionChange)="changeMonth('select', $event)"
+        min="2019-08"
+        slot="start"
+      ></ion-datetime> -->
+    <p style="font-size: 12px;" slot="end">07월 31일 08:00 집계</p>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
   <ion-refresher
     slot="fixed"

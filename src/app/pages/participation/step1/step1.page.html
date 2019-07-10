@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>발전왕 참가하기 - step1</ion-title>
     <ion-buttons slot="end">
-      <ion-button shape="round" (click)="close()">
+      <ion-button shape="round" color="medium" (click)="close()">
         <ion-icon name="close"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -10,26 +10,6 @@
 </ion-header>
 
 <ion-content [formGroup]="step1Form" (ngSubmit)="$event.preventDefault()">
-  <ion-grid style="margin-bottom: 5px;">
-    <ion-row class="ion-text-center">
-      <ion-col>
-        <ion-button color="dark" size="small" expand="full">
-          step1
-        </ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button color="medium" size="small" expand="full">
-          step2
-        </ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button color="medium" size="small" expand="full">
-          신청완료
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
   <ion-item>
     <ion-label position="stacked" class="title-label">발전소 이름</ion-label>
     <ion-input

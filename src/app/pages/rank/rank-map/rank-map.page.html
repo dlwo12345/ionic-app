@@ -1,15 +1,62 @@
-<ion-toolbar>
-  <ion-buttons>
-    <ion-datetime
-      style="font-size: 1.5em; padding-right: 20px;"
-      mode="ios"
-      display-format="YYYY-MM"
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      발전왕
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar style="padding-left: 15px; padding-right: 15px;">
+    <ion-select
+      placeholder="8월 리그"
+      okText="확인"
       cancelText="취소"
-      done-text="완료"
-      [value]="viewMonth"
-      (ionChange)="loadKakaoMap2($event)"
-    ></ion-datetime>
-  </ion-buttons>
-</ion-toolbar>
+      slot="start"
+    >
+      <ion-select-option value="brown">8월 리그</ion-select-option>
+      <ion-select-option value="blonde">9월 리그</ion-select-option>
+    </ion-select>
+    <p style="font-size: 12px;" slot="end">07월 31일 08:00 집계</p>
+  </ion-toolbar>
+</ion-header>
 
-<div id="map" style="width:100%; height: 100%;"></div>
+<ion-header style="margin-top:3px; margin-bottom:3px;">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-text-center">
+          <ion-text class="ion-text-center">
+            <p>시작일</p>
+            <p>D-6</p>
+          </ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text class="ion-text-center">
+            <p>참가자</p>
+            <p>456 명</p>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-toolbar style="padding-left: 15px; padding-right: 15px;">
+    <ion-text slot="start">
+      <p class="border-bottom">전국 리그</p>
+    </ion-text>
+    <ion-button
+      color="medium"
+      mode="ios"
+      fill="clear"
+      shape="round"
+      size="large"
+      no-margin
+      no-padding
+      slot="end"
+    >
+      <ion-icon name="list"></ion-icon>
+      <ion-icon name="map"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+  <div id="map" style="width:100%; height: 100%;"></div>
+</ion-content>
