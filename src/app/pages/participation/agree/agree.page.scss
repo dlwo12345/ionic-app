@@ -5,3 +5,13 @@
 // ion-checkbox {
 //   --border-color-checked: white;
 // }
+
+// :host ::ng-deep ion-input {
+//   --background: #aaa !important;
+// }
+
+.custom-ion-input {
+  border: 1px solid gray;
+  color: gray;
+  --padding-start: 10px !important;
+}

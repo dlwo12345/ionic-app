@@ -21,10 +21,6 @@ export class CurrentStatePage {
     this.loadKakaoMap();
   }
 
-  test() {
-    this.loadKakaoMap();
-  }
-
   loadKakaoMap() {
     const mapContainer = document.getElementById('map'), // 지도를 표시할 div
       mapOption = {
@@ -88,10 +84,8 @@ export class CurrentStatePage {
         console.log('e', e);
       });
       itemContent.innerHTML = `<a href="javascript:void(0)" target="_blank">
-                              <span class="title">${v.enterPosition}<br>
-                                <span style="color:red;">${v.number}건</span>
-                              </span>
-                            </a>`;
+                                <span class="title">${v.enterPosition}(${v.number})<br><span style="color:#60A9F8;">4.81 h</span></span>
+                               </a>`;
 
       // const itemContent = `<div class="customoverlay">
       //                       <a href="javascript:void(0)" target="_blank">

@@ -1,4 +1,4 @@
-import {Component, AfterViewInit} from '@angular/core';
+import {Component, AfterViewInit, ViewEncapsulation} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {AlertController, ModalController} from '@ionic/angular';
 import {DetailPage} from '../modal/detail/detail.page';
@@ -9,7 +9,7 @@ import * as moment from 'moment';
 @Component({
   selector: 'app-rank',
   templateUrl: 'rank.page.html',
-  styleUrls: ['rank.page.scss']
+  styleUrls: ['rank.page.scss'],
 })
 export class RankPage {
   modal = null;
