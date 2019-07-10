@@ -1,6 +1,6 @@
 # ionic 앱 프로토타이핑
 
-- Content Management System
+- 발전왕 프로젝트
 
 ## 개발언어
 
