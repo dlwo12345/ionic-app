@@ -1,0 +1,97 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>
+      My
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="false" style="position: relative;">
+  <div
+    style="position:absolute; top:50%; left:50%; transform: translate(-50%, -50%);"
+  >
+    <ion-text style="text-align: center; font-weight: bold; line-height:25px;">
+      <p>로그인하고</p>
+      <p>내 발전소 발전시간을</p>
+      <p>확인하세요.</p>
+    </ion-text>
+    <ion-button padding expand="full" color="dark">로그인</ion-button>
+  </div>
+</ion-content>
+
+<ion-content>
+  <ion-refresher
+    slot="fixed"
+    (ionRefresh)="ionRefresh($event)"
+    (ionPull)="ionPull($event)"
+    (ionStart)="ionStart($event)"
+  >
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      refreshingSpinner="circles"
+    >
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list no-padding>
+    <ion-item
+      no-padding
+      class="custom"
+      button
+      detail="true"
+      *ngFor="let item of testArr; let i = index"
+      (click)="presentModal1($event)"
+    >
+      <ion-thumbnail>
+        <div class="rank-wrap">
+          <span class="rank-number">{{ i + 1 }}</span>
+        </div>
+      </ion-thumbnail>
+      <ion-label style="font-size: 0.8em;">
+        <div class="clearfix">
+          <span style="float:left;">{{ item.text }}</span>
+          <span style="float:right;">1.11h</span>
+        </div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col no-padding>
+        <ion-button
+          no-margin
+          expand="full"
+          fill="clear"
+          style="border: 1px solid black; font-size: 1.3em;"
+          color="dark"
+          size="large"
+          (click)="presentModal2($event)"
+        >
+          <p>
+            설정<br /><span style="font-size: 0.6em;">보고서 정확도:94%</span>
+          </p>
+        </ion-button>
+      </ion-col>
+      <ion-col no-padding>
+        <ion-button
+          no-margin
+          expand="full"
+          fill="clear"
+          style="border: 1px solid black; font-size: 1.3em; border-left: 0;"
+          color="dark"
+          size="large"
+          (click)="presentModal3($event)"
+          ><p>
+            메달<br />
+            <span style="font-size: 0.6em;">
+              3/11
+            </span>
+          </p></ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer> -->
