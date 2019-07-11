@@ -1,0 +1,45 @@
+.off-box {
+  --background: gray;
+  --color: white;
+}
+
+ul,
+li,
+ol {
+  list-style: none;
+}
+
+.btn-view-details {
+  text-decoration: underline;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.medal-item {
+  display: inline-block;
+  border: 1px solid black;
+  text-align: center;
+  margin: 2px;
+  font-size: 0.8em;
+}
+
+.medal-title {
+}
+.medal-text {
+  font-weight: bold;
+}
+
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.terms-text {
+  width: 100%;
+  height: 160px;
+  overflow-x: auto;
+  overflow-y: scroll;
+}
