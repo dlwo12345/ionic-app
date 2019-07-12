@@ -35,12 +35,12 @@ export class RankMapPage {
 
     const customOverlayList = [
       {
-        position: new kakao.maps.LatLng(37.686313, 127.059961), // 커스텀 오버레이가 표시될 위치입니다
+        position: new kakao.maps.LatLng(37.774358, 126.781824), // 커스텀 오버레이가 표시될 위치입니다
         enterPosition: '경기도', // 참가 구분
         number: 5 // 참가 인원
       },
       {
-        position: new kakao.maps.LatLng(37.816179, 128.170169), // 커스텀 오버레이가 표시될 위치입니다
+        position: new kakao.maps.LatLng(38.094410, 128.579839), // 커스텀 오버레이가 표시될 위치입니다
         enterPosition: '강원도', // 참가 구분
         number: 1 // 참가 인원
       },
@@ -50,7 +50,7 @@ export class RankMapPage {
         number: 1 // 참가 인원
       },
       {
-        position: new kakao.maps.LatLng(35.43419, 128.201437), // 커스텀 오버레이가 표시될 위치입니다
+        position: new kakao.maps.LatLng(35.363869, 129.102740), // 커스텀 오버레이가 표시될 위치입니다
         enterPosition: '경상남도', // 참가 구분
         number: 1 // 참가 인원
       },
@@ -70,7 +70,7 @@ export class RankMapPage {
         number: 1 // 참가 인원
       },
       {
-        position: new kakao.maps.LatLng(36.988991, 127.716825), // 커스텀 오버레이가 표시될 위치입니다
+        position: new kakao.maps.LatLng(37.116357, 128.196271), // 커스텀 오버레이가 표시될 위치입니다
         enterPosition: '충청북도', // 참가 구분
         number: 1 // 참가 인원
       }

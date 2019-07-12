@@ -1,55 +1,5 @@
 <ion-content>
   <ion-router-outlet></ion-router-outlet>
-  <!-- <ion-toolbar margin-vertical>
-    <ion-datetime
-      style="font-weight:bold; padding-right: 20px;"
-      mode="ios"
-      display-format="YYYY-MM"
-      cancelText="취소"
-      done-text="완료"
-      [value]="viewMonth"
-      (ionChange)="changeMonth('select', $event)"
-      min="2019-08"
-      slot="start"
-    ></ion-datetime>
-    <p margin-end style="font-size: 12px;" slot="end">07월 31일 08:00 집계</p>
-  </ion-toolbar>
-  <ion-refresher
-    slot="fixed"
-    (ionRefresh)="ionRefresh($event)"
-    (ionPull)="ionPull($event)"
-    (ionStart)="ionStart($event)"
-  >
-    <ion-refresher-content
-      pullingIcon="arrow-dropdown"
-      refreshingSpinner="circles"
-    >
-    </ion-refresher-content>
-  </ion-refresher>
-
-  <ion-list no-padding>
-    <ion-item
-      no-padding
-      class="custom"
-      button
-      detail="true"
-      *ngFor="let item of testArr; let i = index"
-      (click)="presentModal1($event)"
-    >
-      <ion-thumbnail>
-        <div class="rank-wrap">
-          <ion-icon *ngIf="i <= 2" mode="ios" name="medal"></ion-icon>
-          <span class="rank-number">{{ i + 1 }}</span>
-        </div>
-      </ion-thumbnail>
-      <ion-label style="font-size: 0.8em;">
-        <div class="clearfix">
-          <span style="float:left;">{{ item.text }}</span>
-          <span style="float:right;">1.11h</span>
-        </div>
-      </ion-label>
-    </ion-item>
-  </ion-list> -->
 </ion-content>
 
 <ion-footer>
