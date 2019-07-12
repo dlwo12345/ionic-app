@@ -108,6 +108,6 @@ export class Step2Page implements OnInit {
   }
 
   close() {
-    this.navC.navigateBack('/tabs/rank');
+    this.navC.navigateBack('/tabs/rank/map');
   }
 }

@@ -12,10 +12,10 @@ export class CompletePage implements OnInit {
   ngOnInit() {}
 
   goMain() {
-    this.navC.navigateBack('/tabs/rank');
+    this.navC.navigateBack('/tabs/rank/map');
   }
 
   close() {
-    this.navC.navigateBack('/tabs/rank');
+    this.navC.navigateBack('/tabs/rank/map');
   }
 }

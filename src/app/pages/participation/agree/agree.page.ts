@@ -47,6 +47,6 @@ export class AgreePage implements OnInit {
   }
 
   close() {
-    this.navC.navigateBack('/tabs/rank');
+    this.navC.navigateBack('/tabs/rank/map');
   }
 }

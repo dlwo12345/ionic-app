@@ -40,8 +40,8 @@ export class ShareSnsService {
             {
               title: '알아보러가기',
               link: {
-                mobileWebUrl: 'http://192.168.2.202:8100/tabs/rank',
-                webUrl: 'http://192.168.2.202:8100/tabs/rank'
+                mobileWebUrl: 'http://192.168.2.202:8100/tabs/rank/map',
+                webUrl: 'http://192.168.2.202:8100/tabs/rank/map'
               }
             }
           ]

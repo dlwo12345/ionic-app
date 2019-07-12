@@ -111,6 +111,6 @@ export class Step1Page implements OnInit, OnDestroy {
   ngOnDestroy() {}
 
   close() {
-    this.navC.navigateBack('/tabs/rank');
+    this.navC.navigateBack('/tabs/rank/map');
   }
 }

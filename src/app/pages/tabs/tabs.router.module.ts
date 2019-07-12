@@ -9,7 +9,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/tabs/rank',
+        redirectTo: '/tabs/rank/map',
         pathMatch: 'full'
       },
       {
@@ -44,7 +44,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: '/tabs/rank',
+    redirectTo: '/tabs/rank/map',
     pathMatch: 'full'
   }
 ];
