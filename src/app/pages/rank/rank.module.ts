@@ -2,7 +2,7 @@ import {RouterModule} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {SharedModule} from 'src/app/shared/shared.module';
 import {RankPage} from './rank.page';
-import { ModalPageModule } from '../modal/modal.module';
+import {ModalPageModule} from '../modal/modal.module';
 
 @NgModule({
   imports: [
