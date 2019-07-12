@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 
 import * as moment from 'moment';
+import {ModalController} from '@ionic/angular';
+import {RulePage} from '../../modal/rule/rule.page';
 
 declare var kakao: any;
 
@@ -12,7 +14,7 @@ declare var kakao: any;
 })
 export class RankMapPage {
   viewMonth = moment(new Date()).format('YYYY-MM');
-  constructor(private router: Router) {}
+  constructor(private router: Router, private modalC: ModalController) {}
 
   /**
    * 아이오닉 뷰 바인딩 이후
@@ -40,7 +42,7 @@ export class RankMapPage {
         number: 5 // 참가 인원
       },
       {
-        position: new kakao.maps.LatLng(38.094410, 128.579839), // 커스텀 오버레이가 표시될 위치입니다
+        position: new kakao.maps.LatLng(38.09441, 128.579839), // 커스텀 오버레이가 표시될 위치입니다
         enterPosition: '강원도', // 참가 구분
         number: 1 // 참가 인원
       },
@@ -50,7 +52,7 @@ export class RankMapPage {
         number: 1 // 참가 인원
       },
       {
-        position: new kakao.maps.LatLng(35.363869, 129.102740), // 커스텀 오버레이가 표시될 위치입니다
+        position: new kakao.maps.LatLng(35.363869, 129.10274), // 커스텀 오버레이가 표시될 위치입니다
         enterPosition: '경상남도', // 참가 구분
         number: 1 // 참가 인원
       },
@@ -214,5 +216,23 @@ export class RankMapPage {
     //   content,
     //   yAnchor: 1
     // });
+  }
+
+  async presentModal1(e) {
+    console.log('e', e); // 전달되는 seq값을 아래 modal에 전달해줄 예정
+    const modal = await this.modalC.create({
+      component: RulePage,
+      componentProps: {value: 123}
+    });
+
+    modal.onDidDismiss().then(dataReturned => {
+      if (dataReturned !== null) {
+        console.log('dataReturned', dataReturned);
+        // this.dataReturned = dataReturned.data;
+        // alert('Modal Sent Data :'+ dataReturned);
+      }
+    });
+
+    return await modal.present();
   }
 }
