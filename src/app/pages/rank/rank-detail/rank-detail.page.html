@@ -39,7 +39,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-refresher
+  <!-- <ion-refresher
     slot="fixed"
     (ionRefresh)="ionRefresh($event)"
     (ionPull)="ionPull($event)"
@@ -50,12 +50,32 @@
       refreshingSpinner="circles"
     >
     </ion-refresher-content>
-  </ion-refresher>
+  </ion-refresher> -->
 
   <ion-list no-padding>
     <ion-item
       no-padding
-      class="custom"
+      class="custom my"
+      button
+      detail="true"
+      (click)="presentModal1($event)"
+      style="--background:#33a0ff;"
+    >
+      <ion-thumbnail>
+        <div class="rank-wrap">
+          <span class="rank-number">29</span>
+        </div>
+      </ion-thumbnail>
+      <ion-label style="font-size: 0.8em;">
+        <div class="clearfix">
+          <span style="float:left; color:#fff; font-weight: bold;">내발전소</span>
+          <span style="float:right; color:#fff; font-weight: bold;">1.1시간</span>
+        </div>
+      </ion-label>
+    </ion-item>
+    <ion-item
+      no-padding
+      class="custom list"
       button
       detail="true"
       *ngFor="let item of testArr; let i = index"
@@ -69,8 +89,8 @@
       </ion-thumbnail>
       <ion-label style="font-size: 0.8em;">
         <div class="clearfix">
-          <span style="float:left;">{{ item.text }}</span>
-          <span style="float:right;">1.11h</span>
+          <span style="float:left; font-weight: bold;">{{ item.text }}</span>
+          <span style="float:right; font-weight: bold;">1.1시간</span>
         </div>
       </ion-label>
     </ion-item>

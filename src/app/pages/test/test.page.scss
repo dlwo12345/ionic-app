@@ -45,7 +45,7 @@ ion-datetime {
   }
 
   // 1등
-  &:nth-of-type(2) {
+  &:nth-of-type(1) {
     .rank-number {
       top: 57% !important;
     }
@@ -54,7 +54,7 @@ ion-datetime {
     }
   }
   // 2등
-  &:nth-of-type(3) {
+  &:nth-of-type(2) {
     .rank-number {
       top: 57% !important;
     }
@@ -63,7 +63,7 @@ ion-datetime {
     }
   }
   // 3등
-  &:nth-of-type(4) {
+  &:nth-of-type(3) {
     .rank-number {
       top: 57% !important;
     }
@@ -71,8 +71,4 @@ ion-datetime {
       color: #c58d56;
     }
   }
-}
-
-.my-input {
-  background-color: #33a0ff;
 }

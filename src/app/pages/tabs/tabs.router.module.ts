@@ -31,12 +31,12 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'currentstate',
+        path: 'test',
         children: [
           {
             path: '',
             loadChildren:
-              '../current-state/current-state.module#CurrentStatePageModule'
+              '../test/test.module#TestPageModule'
           }
         ]
       }

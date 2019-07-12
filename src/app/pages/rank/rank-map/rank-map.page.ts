@@ -35,43 +35,43 @@ export class RankMapPage {
 
     const customOverlayList = [
       {
-        position: new kakao.maps.LatLng(37.274399, 127.51605), // 커스텀 오버레이가 표시될 위치입니다
-        enterPosition: '경기도', // 참가 구분
-        number: 3 // 참가 인원
-      },
-      {
         position: new kakao.maps.LatLng(37.686313, 127.059961), // 커스텀 오버레이가 표시될 위치입니다
-        enterPosition: '서울', // 참가 구분
+        enterPosition: '경기도', // 참가 구분
         number: 5 // 참가 인원
       },
       {
-        position: new kakao.maps.LatLng(37.379845, 126.626494), // 커스텀 오버레이가 표시될 위치입니다
-        enterPosition: '인천', // 참가 구분
-        number: 1 // 참가 인원
-      },
-      {
-        position: new kakao.maps.LatLng(37.461489, 128.963376), // 커스텀 오버레이가 표시될 위치입니다
+        position: new kakao.maps.LatLng(37.816179, 128.170169), // 커스텀 오버레이가 표시될 위치입니다
         enterPosition: '강원도', // 참가 구분
         number: 1 // 참가 인원
       },
       {
-        position: new kakao.maps.LatLng(35.406111, 129.210556), // 커스텀 오버레이가 표시될 위치입니다
-        enterPosition: '경상도', // 참가 구분
+        position: new kakao.maps.LatLng(36.365168, 129.013577), // 커스텀 오버레이가 표시될 위치입니다
+        enterPosition: '경상북도', // 참가 구분
         number: 1 // 참가 인원
       },
       {
-        position: new kakao.maps.LatLng(35.14989, 126.625157), // 커스텀 오버레이가 표시될 위치입니다
-        enterPosition: '전라도', // 참가 구분
+        position: new kakao.maps.LatLng(35.43419, 128.201437), // 커스텀 오버레이가 표시될 위치입니다
+        enterPosition: '경상남도', // 참가 구분
         number: 1 // 참가 인원
       },
       {
-        position: new kakao.maps.LatLng(36.380507, 127.14494), // 커스텀 오버레이가 표시될 위치입니다
-        enterPosition: '충청도', // 참가 구분
+        position: new kakao.maps.LatLng(35.697445, 127.125101), // 커스텀 오버레이가 표시될 위치입니다
+        enterPosition: '전라북도', // 참가 구분
         number: 1 // 참가 인원
       },
       {
-        position: new kakao.maps.LatLng(33.343684, 126.541758), // 커스텀 오버레이가 표시될 위치입니다
-        enterPosition: '제주도', // 참가 구분
+        position: new kakao.maps.LatLng(34.849181, 126.974222), // 커스텀 오버레이가 표시될 위치입니다
+        enterPosition: '전라남도', // 참가 구분
+        number: 1 // 참가 인원
+      },
+      {
+        position: new kakao.maps.LatLng(36.671489, 126.816363), // 커스텀 오버레이가 표시될 위치입니다
+        enterPosition: '충청남도', // 참가 구분
+        number: 1 // 참가 인원
+      },
+      {
+        position: new kakao.maps.LatLng(36.988991, 127.716825), // 커스텀 오버레이가 표시될 위치입니다
+        enterPosition: '충청북도', // 참가 구분
         number: 1 // 참가 인원
       }
     ];

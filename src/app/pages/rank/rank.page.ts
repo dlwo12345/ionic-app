@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {AlertController, ModalController} from '@ionic/angular';
 import {DetailPage} from '../modal/detail/detail.page';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 
 import * as moment from 'moment';
 import {TermsPage} from '../modal/terms/terms.page';
@@ -22,7 +22,8 @@ export class RankPage {
     public http: HttpClient,
     public alertC: AlertController,
     public modalC: ModalController,
-    public router: Router
+    public router: Router,
+    public route: ActivatedRoute
   ) {
     // 초기 데이터 call
     this.loadData();

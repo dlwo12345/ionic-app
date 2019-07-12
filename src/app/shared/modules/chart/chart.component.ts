@@ -26,7 +26,7 @@ interface ChartStyleOption {
 export class ChartComponent implements AfterViewInit, OnDestroy {
   @Input() data: any[];
   @Input() style: ChartStyleOption = {
-    width: '100%',
+    width: '95%',
     height: '300px'
   };
 
@@ -65,10 +65,14 @@ export class ChartComponent implements AfterViewInit, OnDestroy {
     this.chart.data = this.data;
 
     // Create axes
-    const categoryAxis = this.chart.xAxes.push(new am4charts.CategoryAxis());
+    const categoryAxis: any = this.chart.xAxes.push(
+      new am4charts.CategoryAxis()
+    );
     categoryAxis.dataFields.category = 'country';
     categoryAxis.renderer.grid.template.location = 0;
     categoryAxis.renderer.minGridDistance = 30;
+    categoryAxis.extraMin = 0.2;
+    categoryAxis.extraMax = 0.2;
 
     const valueAxis = this.chart.yAxes.push(new am4charts.ValueAxis());
 
@@ -83,6 +87,31 @@ export class ChartComponent implements AfterViewInit, OnDestroy {
     const columnTemplate = series.columns.template;
     columnTemplate.strokeWidth = 2;
     columnTemplate.strokeOpacity = 1;
+
+    const topContainer = this.chart.chartContainer.createChild(
+      am4core.Container
+    );
+    topContainer.layout = 'absolute';
+    topContainer.toBack();
+    topContainer.paddingBottom = 15;
+    topContainer.width = am4core.percent(100);
+
+    const axisTitle: any = topContainer.createChild(am4core.Label);
+    axisTitle.text = '(h)';
+    axisTitle.fontWeight = 600;
+    axisTitle.fontSize = 15;
+    axisTitle.align = 'left';
+    axisTitle.fill = 'gray';
+    axisTitle.paddingLeft = 5;
+
+    const label: any = this.chart.chartContainer.createChild(am4core.Label);
+    label.text = '(일)';
+    label.fontWeight = 600;
+    label.align = 'right';
+    label.marginTop = -10;
+    label.marginRight = -5;
+    label.fontSize = 15;
+    label.fill = 'gray';
   }
 
   createChart(option?: any) {
