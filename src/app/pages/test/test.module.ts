@@ -8,28 +8,7 @@ import {TestPage} from './test.page';
   imports: [
     SharedModule,
     ModalPageModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        redirectTo: 'map',
-        pathMatch: 'full'
-      },
-      {
-        path: '',
-        component: TestPage,
-        children: [
-          {
-            path: 'map',
-            loadChildren: './rank-map/rank-map.module#RankMapPageModule'
-          },
-          {
-            path: 'detail',
-            loadChildren:
-              './rank-detail/rank-detail.module#RankDetailPageModule'
-          }
-        ]
-      }
-    ])
+    RouterModule.forChild([{path: '', component: TestPage}])
   ],
   declarations: [TestPage]
 })

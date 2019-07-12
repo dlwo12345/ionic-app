@@ -46,7 +46,7 @@ export class MyPage implements AfterViewInit {
     {country: '27', visits: 15},
     {country: '28', visits: 1},
     {country: '29', visits: 5},
-    {country: '30', visits: 7}
+    {country: '30', visits: 7},
   ];
 
   viewMonth = moment(new Date()).format('YYYY-MM');
