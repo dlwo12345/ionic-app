@@ -52,11 +52,6 @@ export class MyPage implements AfterViewInit {
     xAxes: [
       {
         type: 'CategoryAxis',
-        title: {
-          text: '(일)',
-          fill: '#999',
-          fontWeight: 600
-        },
         dataFields: {
           category: 'country'
         },
@@ -75,7 +70,6 @@ export class MyPage implements AfterViewInit {
     yAxes: [
       {
         type: 'ValueAxis',
-        title: {text: '(h)', fill: '#999', fontWeight: 600}
       }
     ],
     series: [

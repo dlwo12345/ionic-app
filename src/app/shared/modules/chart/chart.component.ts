@@ -58,17 +58,15 @@ export class ChartComponent implements AfterViewInit, OnDestroy {
   }
 
   setChart(data: any[]) {
+    am4core.options.commercialLicense = true;
+    this.chart = am4core.createFromConfig(
+      data,
+      this.chartUuid,
+      am4charts.XYChart
+    );
+
     // Create chart instance
     // this.chart = am4core.create(this.chartUuid, am4charts.XYChart);
-
-    setTimeout(() => {
-      am4core.options.commercialLicense = true;
-      this.chart = am4core.createFromConfig(
-        data,
-        this.chartUuid,
-        am4charts.XYChart
-      );
-    }, 0);
 
     // Add data
     // this.chart.data = this.data;
