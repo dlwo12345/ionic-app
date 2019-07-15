@@ -26,11 +26,11 @@ interface ChartStyleOption {
 export class ChartComponent implements AfterViewInit, OnDestroy {
   @Input() data: any[];
   @Input() style: ChartStyleOption = {
-    width: '95%',
+    width: '100%',
     height: '300px'
   };
 
-  private chart: am4charts.XYChart = null;
+  private chart: any = null;
   private chartUuid: string = null;
 
   private el: ElementRef;
@@ -59,59 +59,69 @@ export class ChartComponent implements AfterViewInit, OnDestroy {
 
   setChart(data: any[]) {
     // Create chart instance
-    this.chart = am4core.create(this.chartUuid, am4charts.XYChart);
+    // this.chart = am4core.create(this.chartUuid, am4charts.XYChart);
+
+    setTimeout(() => {
+      am4core.options.commercialLicense = true;
+      this.chart = am4core.createFromConfig(
+        data,
+        this.chartUuid,
+        am4charts.XYChart
+      );
+    }, 0);
 
     // Add data
-    this.chart.data = this.data;
+    // this.chart.data = this.data;
 
     // Create axes
-    const categoryAxis: any = this.chart.xAxes.push(
-      new am4charts.CategoryAxis()
-    );
-    categoryAxis.dataFields.category = 'country';
-    categoryAxis.renderer.grid.template.location = 0;
-    categoryAxis.renderer.minGridDistance = 30;
-    categoryAxis.extraMin = 0.2;
-    categoryAxis.extraMax = 0.2;
+    // const categoryAxis: any = this.chart.xAxes.push(
+    //   new am4charts.CategoryAxis()
+    // );
+    // categoryAxis.dataFields.category = 'country';
+    // categoryAxis.renderer.grid.template.location = 0;
+    // categoryAxis.renderer.minGridDistance = 30;
+    // categoryAxis.extraMin = 0.2;
+    // categoryAxis.extraMax = 0.2;
 
-    const valueAxis = this.chart.yAxes.push(new am4charts.ValueAxis());
+    // const valueAxis = this.chart.yAxes.push(new am4charts.ValueAxis());
 
     // Create series
-    const series = this.chart.series.push(new am4charts.ColumnSeries());
-    series.dataFields.valueY = 'visits';
-    series.dataFields.categoryX = 'country';
-    series.name = 'Visits';
-    series.columns.template.tooltipText = '{categoryX}: [bold]{valueY}[/]';
-    series.columns.template.fillOpacity = 0.8;
+    // const series = this.chart.series.push(new am4charts.ColumnSeries());
+    // series.dataFields.valueY = 'visits';
+    // series.dataFields.categoryX = 'country';
+    // series.name = 'Visits';
+    // series.columns.template.tooltipText = '{categoryX}: [bold]{valueY}[/]';
+    // series.columns.template.fillOpacity = 0.8;
+    // series.columns.template.fill = am4core.color('#33a0ff');
 
-    const columnTemplate = series.columns.template;
-    columnTemplate.strokeWidth = 2;
-    columnTemplate.strokeOpacity = 1;
+    // const columnTemplate = series.columns.template;
+    // columnTemplate.strokeWidth = 2;
+    // columnTemplate.strokeOpacity = 1;
 
-    const topContainer = this.chart.chartContainer.createChild(
-      am4core.Container
-    );
-    topContainer.layout = 'absolute';
-    topContainer.toBack();
-    topContainer.paddingBottom = 15;
-    topContainer.width = am4core.percent(100);
+    // const topContainer = this.chart.chartContainer.createChild(
+    //   am4core.Container
+    // );
+    // topContainer.layout = 'absolute';
+    // topContainer.toBack();
+    // topContainer.paddingBottom = 15;
+    // topContainer.width = am4core.percent(100);
 
-    const axisTitle: any = topContainer.createChild(am4core.Label);
-    axisTitle.text = '(h)';
-    axisTitle.fontWeight = 600;
-    axisTitle.fontSize = 15;
-    axisTitle.align = 'left';
-    axisTitle.fill = 'gray';
-    axisTitle.paddingLeft = 5;
+    // const axisTitle: any = topContainer.createChild(am4core.Label);
+    // axisTitle.text = '(시간)';
+    // axisTitle.fontWeight = 600;
+    // axisTitle.fontSize = 15;
+    // axisTitle.align = 'left';
+    // axisTitle.fill = '#999';
+    // axisTitle.paddingLeft = 5;
 
-    const label: any = this.chart.chartContainer.createChild(am4core.Label);
-    label.text = '(일)';
-    label.fontWeight = 600;
-    label.align = 'right';
-    label.marginTop = -10;
-    label.marginRight = -5;
-    label.fontSize = 15;
-    label.fill = 'gray';
+    // const label: any = this.chart.chartContainer.createChild(am4core.Label);
+    // label.text = '(일)';
+    // label.fontWeight = 600;
+    // label.align = 'right';
+    // label.marginTop = -10;
+    // label.marginRight = -5;
+    // label.fontSize = 15;
+    // label.fill = '#999';
   }
 
   createChart(option?: any) {

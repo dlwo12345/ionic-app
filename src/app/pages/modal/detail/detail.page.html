@@ -46,28 +46,6 @@
   </ion-list>
 </ion-content>
 
-<ion-footer>
-  <ion-grid no-padding>
-    <ion-row>
-      <ion-col no-padding>
-        <ion-button no-margin expand="full" color="warning" id="kakao-link-btn">
-          카카오톡으로 공유
-        </ion-button>
-      </ion-col>
-      <ion-col no-padding>
-        <ion-button
-          no-margin
-          expand="full"
-          color="success"
-          (click)="ShareSnsS.shareBand('사이트명 - 페이지명', '페이지URL')"
-        >
-          네이버밴드로 공유
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-footer>
-
 <!-- 원래 있었는데 기획서에서 빠진내용들.. 추후에 삽입될 수 있음 -->
 <!-- <ion-list>
   <ion-item lines="full" [ngSwitch]="premiumAuth">

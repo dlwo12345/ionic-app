@@ -14,6 +14,12 @@
       <ion-label>발전소 순위</ion-label>
       <ion-text>경기 지역 11위</ion-text>
     </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      일별 발전시간
+    </ion-list-header>
     <app-chart [data]="chartData"></app-chart>
   </ion-list>
 
@@ -34,6 +40,15 @@
       <ion-text>2017년 5월 ~ (2년차)</ion-text>
     </ion-item>
   </ion-list>
+
+  <div
+    style="background-color: #fcfcfc; text-align: center; letter-spacing: -1px;"
+  >
+    <img src="/assets/icon/logo-w.svg" style="width: 52.5%; opacity: 0.4;" />
+    <p style="color: #999999; font-size: 14px;">
+      © SolarConnect, Inc. All rights reserved.
+    </p>
+  </div>
 </ion-content>
 
 <ion-footer>
@@ -41,17 +56,17 @@
     <ion-row>
       <ion-col no-padding>
         <ion-button no-margin expand="full" color="warning" id="kakao-link-btn">
-          카카오톡으로 공유
+          <span style="font-weight: bold;">카카오톡</span>으로 공유
         </ion-button>
       </ion-col>
       <ion-col no-padding>
         <ion-button
           no-margin
           expand="full"
-          color="success"
+          style="--background:#33a0ff;"
           (click)="ShareSnsS.shareBand('사이트명 - 페이지명', '페이지URL')"
         >
-          네이버밴드로 공유
+          <span style="font-weight: bold;">네이버밴드</span>로 공유
         </ion-button>
       </ion-col>
     </ion-row>
