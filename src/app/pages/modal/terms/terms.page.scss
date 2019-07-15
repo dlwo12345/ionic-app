@@ -1,6 +1,78 @@
+:host ::ng-deep .terms_header {
+  background: #fcfcfc;
+  padding: 26px 0 16px;
+  ion-toolbar {
+    --background: #fcfcfc;
+  }
+  ion-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  ion-icon {
+    font-size: 32px;
+  }
+  &:after {
+    background-image: none;
+  }
+}
+
+.terms_wrap {
+  background: #fcfcfc;
+}
+
 .card-text {
   width: 100%;
   height: 160px;
   overflow-x: auto;
   overflow-y: scroll;
+}
+
+.terms_card {
+  padding: 24px 20px 28px;
+  margin: 16px 0;
+  background: #fff;
+  .terms_title {
+    font-size: 16px;
+    padding-bottom: 8px;
+    font-weight: bold;
+    color: #1a1a1a;
+  }
+  .terms_info {
+    color: #6d6d6d;
+    overflow: scroll;
+    height: 160px;
+  }
+}
+.policy {
+  border: 1px solid #999;
+  th {
+    text-align: center;
+    border: 1px solid #999;
+  }
+  td {
+    text-align: left;
+    border: 1px solid #999;
+  }
+}
+ion-footer {
+  .footer_logo {
+    margin: auto;
+  }
+  ion-title {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+
+.bottom_box {
+  background: #fcfcfc;
+  padding: 35px 0 24px;
+  text-align: center;
+  color: #999;
+  .bottom_logo {
+    opacity: 0.4;
+  }
+  .copyright {
+    font-size: 14px;
+  }
 }

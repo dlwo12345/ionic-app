@@ -1,6 +1,5 @@
 import {Component, Input} from '@angular/core';
 import {NavParams, ModalController} from '@ionic/angular';
-import {TERMS_TEXT} from './data/terms.model';
 
 @Component({
   selector: 'app-terms',
@@ -8,7 +7,6 @@ import {TERMS_TEXT} from './data/terms.model';
   styleUrls: ['terms.page.scss']
 })
 export class TermsPage {
-  public TERMS_TEXT = TERMS_TEXT;
   // "value" passed in componentProps
   @Input() value: number;
 

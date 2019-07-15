@@ -5,8 +5,6 @@ import {DetailPage} from '../modal/detail/detail.page';
 import {Router} from '@angular/router';
 
 import * as moment from 'moment';
-import {MedalPage} from '../modal/medal/medal.page';
-import {SetPage} from '../modal/set/set.page';
 import {ShareSnsService} from 'src/app/shared/services/share-sns.service';
 
 @Component({
@@ -69,7 +67,7 @@ export class MyPage implements AfterViewInit {
     ],
     yAxes: [
       {
-        type: 'ValueAxis',
+        type: 'ValueAxis'
       }
     ],
     series: [

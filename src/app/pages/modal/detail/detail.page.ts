@@ -2,6 +2,7 @@ import {Component, Input, OnInit, OnDestroy} from '@angular/core';
 import * as moment from 'moment';
 import {NavParams, ModalController} from '@ionic/angular';
 import {MedalPage} from '../medal/medal.page';
+import {LoginService} from 'src/app/shared/services/login.service';
 
 @Component({
   selector: 'app-detail',
@@ -103,27 +104,32 @@ export class DetailPage implements OnInit, OnDestroy {
               fontSize: 15,
               align: 'left',
               fill: '#999',
-              paddingLeft: 5
+              paddingLeft: -35
+            },
+            {
+              type: 'Label',
+              text: '(일)',
+              fontWeight: 600,
+              align: 'right',
+              marginTop: -100,
+              // marginRight: -5,
+              fontSize: 15,
+              fill: '#999'
             }
           ]
-        },
-        {
-          type: 'Label',
-          text: '(일)',
-          fontWeight: 600,
-          align: 'right',
-          marginTop: -10,
-          marginRight: -5,
-          fontSize: 15,
-          fill: '#999'
         }
       ]
     }
   };
 
-  constructor(private navParams: NavParams, private modalC: ModalController) {
+  constructor(
+    private navParams: NavParams,
+    private modalC: ModalController,
+    private loginS: LoginService
+  ) {
     // componentProps can also be accessed at construction time using NavParams
     console.log('navParams', navParams);
+    console.log('login?', this.loginS.isLogin());
   }
 
   ngOnDestroy() {}
