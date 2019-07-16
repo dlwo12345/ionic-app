@@ -14,11 +14,11 @@ export class Step1Page implements OnInit, OnDestroy {
   data: any;
   step1Form: FormGroup;
   constructor(
-    public navC: NavController,
+    private navC: NavController,
     private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder,
-    public alertC: AlertController
+    private alertC: AlertController
   ) {
     this.createForm();
     this.route.queryParams.subscribe(params => {

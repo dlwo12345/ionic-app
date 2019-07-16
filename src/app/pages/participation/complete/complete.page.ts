@@ -7,7 +7,7 @@ import {NavController} from '@ionic/angular';
   styleUrls: ['./complete.page.scss']
 })
 export class CompletePage implements OnInit {
-  constructor(public navC: NavController) {}
+  constructor(private navC: NavController) {}
 
   ngOnInit() {}
 

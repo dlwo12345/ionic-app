@@ -18,11 +18,11 @@ export class RankDetailPage {
   testArr: any = [];
 
   constructor(
-    public http: HttpClient,
-    public alertC: AlertController,
-    public modalC: ModalController,
-    public router: Router,
-    public navC: NavController
+    private http: HttpClient,
+    private alertC: AlertController,
+    private modalC: ModalController,
+    private router: Router,
+    private navC: NavController
   ) {
     // 초기 데이터 call
     this.loadData();
@@ -58,8 +58,12 @@ export class RankDetailPage {
     });
   }
 
-  goAllData() {
+  goMap() {
     this.navC.navigateForward('/tabs/rank/map');
+  }
+
+  goMy() {
+    this.navC.navigateForward('/tabs/my');
   }
 
   async presentModal1(e) {
@@ -101,6 +105,10 @@ export class RankDetailPage {
 
     // touch stop 이벤트 오류 방지 return
     return true;
+  }
+
+  changeLeague() {
+    this.loadData2();
   }
 
   async ionRefresh(event?) {

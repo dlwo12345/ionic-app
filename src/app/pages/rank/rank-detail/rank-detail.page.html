@@ -5,7 +5,7 @@
       color="medium"
       slot="start"
       shape="round"
-      (click)="goAllData()"
+      (click)="goMap()"
     >
       <ion-icon mode="ios" name="arrow-back"></ion-icon>
     </ion-button>
@@ -19,6 +19,7 @@
       okText="확인"
       cancelText="취소"
       slot="start"
+      (ionChange)="changeLeague($event)"
     >
       <ion-select-option value="brown">8월 리그</ion-select-option>
       <ion-select-option value="blonde">9월 리그</ion-select-option>
@@ -57,7 +58,7 @@
       no-padding
       class="custom my"
       button
-      (click)="presentModal1($event)"
+      (click)="goMy()"
       style="--background:#33a0ff;"
       lines="none"
     >

@@ -126,10 +126,10 @@ export class MyPage implements AfterViewInit {
   viewMonth = moment(new Date()).format('YYYY-MM');
 
   constructor(
-    public http: HttpClient,
-    public alertC: AlertController,
-    public modalC: ModalController,
-    public router: Router,
+    private http: HttpClient,
+    private alertC: AlertController,
+    private modalC: ModalController,
+    private router: Router,
     public ShareSnsS: ShareSnsService
   ) {}
 

@@ -14,11 +14,11 @@ export class Step2Page implements OnInit {
   data: any;
   step2Form: FormGroup;
   constructor(
-    public navC: NavController,
+    private navC: NavController,
     private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder,
-    public alertC: AlertController
+    private alertC: AlertController
   ) {
     this.createForm();
     this.route.queryParams.subscribe(params => {

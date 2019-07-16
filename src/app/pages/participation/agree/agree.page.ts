@@ -12,9 +12,9 @@ export class AgreePage implements OnInit {
   agreeForm: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
-    public router: Router,
-    public navC: NavController,
-    public alertC: AlertController
+    private router: Router,
+    private navC: NavController,
+    private alertC: AlertController
   ) {
     this.createForm();
   }

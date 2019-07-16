@@ -5,7 +5,7 @@ import {LoadingController} from '@ionic/angular';
 export class LoadingService {
   isLoading = false;
 
-  constructor(public loadingC: LoadingController) {}
+  constructor(private loadingC: LoadingController) {}
 
   async show() {
     this.isLoading = true;

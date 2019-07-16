@@ -12,7 +12,7 @@ import {MedalPage} from '../modal/medal/medal.page';
   styleUrls: ['test.page.scss']
 })
 export class TestPage {
-  constructor(public modalC: ModalController) {}
+  constructor(private modalC: ModalController) {}
 
   async presentModal1(e) {
     console.log('', e); // 전달되는 seq값을 아래 modal에 전달해줄 예정
