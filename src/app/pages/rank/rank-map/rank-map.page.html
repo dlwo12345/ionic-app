@@ -3,21 +3,30 @@
     <ion-title>
       발전왕
     </ion-title>
-    <ion-button slot="end" fill="clear" shape="round" color="medium" (click)="presentModal1($event)"
+    <ion-button
+      slot="end"
+      fill="clear"
+      shape="round"
+      color="medium"
+      (click)="presentModal1($event)"
       ><ion-icon name="help-circle"></ion-icon
     ></ion-button>
   </ion-toolbar>
   <ion-toolbar style="padding-left: 15px; padding-right: 15px;">
-    <ion-select
-      placeholder="8월 리그"
-      okText="확인"
-      cancelText="취소"
-      slot="start"
-    >
-      <ion-select-option value="brown">8월 리그</ion-select-option>
-      <ion-select-option value="blonde">9월 리그</ion-select-option>
-    </ion-select>
-    <p style="font-size: 12px;" slot="end">07월 31일 08:00 집계</p>
+    <!--<ion-select-->
+    <!--placeholder="8월 리그"-->
+    <!--okText="확인"-->
+    <!--cancelText="취소"-->
+    <!--slot="start"-->
+    <!--style="&#45;&#45;opacity: 1;font-size: 18px;font-weight: bold"-->
+    <!--&gt;-->
+    <!--<ion-select-option value="brown">8월 리그</ion-select-option>-->
+    <!--<ion-select-option value="blonde">9월 리그</ion-select-option>-->
+    <!--</ion-select>-->
+    <div class="league_info">
+      <p class="league_month">8월 리그</p>
+      <p class="total" slot="end">07월 31일 08:00 집계</p>
+    </div>
   </ion-toolbar>
 </ion-header>
 
@@ -28,13 +37,13 @@
         <ion-col class="ion-text-center">
           <ion-text class="ion-text-center">
             <p>시작일</p>
-            <p>D-6</p>
+            <p class="count_date">D-6</p>
           </ion-text>
         </ion-col>
         <ion-col>
           <ion-text class="ion-text-center">
             <p>참가자</p>
-            <p>456 명</p>
+            <p class="count_date">456 명</p>
           </ion-text>
         </ion-col>
       </ion-row>
@@ -44,22 +53,22 @@
 
 <ion-content>
   <!-- <ion-toolbar style="padding-left: 15px; padding-right: 15px;">
-    <ion-text slot="start">
-      <p class="border-bottom">전국 리그</p>
-    </ion-text>
-    <ion-button
-      color="medium"
-      mode="ios"
-      fill="clear"
-      shape="round"
-      size="large"
-      no-margin
-      no-padding
-      slot="end"
-    >
-      <ion-icon name="list"></ion-icon>
-      <ion-icon name="map"></ion-icon>
-    </ion-button>
-  </ion-toolbar> -->
+      <ion-text slot="start">
+        <p class="border-bottom">전국 리그</p>
+      </ion-text>
+      <ion-button
+        color="medium"
+        mode="ios"
+        fill="clear"
+        shape="round"
+        size="large"
+        no-margin
+        no-padding
+        slot="end"
+      >
+        <ion-icon name="list"></ion-icon>
+        <ion-icon name="map"></ion-icon>
+      </ion-button>
+    </ion-toolbar> -->
   <div id="map" style="width:100%; height: 100%;"></div>
 </ion-content>

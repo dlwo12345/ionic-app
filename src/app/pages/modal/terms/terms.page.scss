@@ -16,6 +16,16 @@
   }
 }
 
+.terms_header {
+  display: flex;
+  padding: 26px 20px 16px;
+  h2 {
+    flex: 1;
+    font-weight: bold;
+    margin: 0;
+  }
+}
+
 .terms_wrap {
   background: #fcfcfc;
 }
