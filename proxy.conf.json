@@ -1,0 +1,14 @@
+{
+  "/api": {
+    "target": "http://server:3000",
+    "secure": false
+  },
+  "/api2": {
+    "target": "http://alpha3-core-api.solarconnect.kr",
+    "secure": false
+  },
+  "/oauth": {
+    "target": "http://server:3000",
+    "secure": false
+  }
+}

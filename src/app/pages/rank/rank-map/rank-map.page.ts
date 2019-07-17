@@ -22,11 +22,21 @@ export class RankMapPage {
   ) {}
 
   loadData() {
-    this.http.get('/assets/test2.json', {}).subscribe((res: any) => {
-      console.log('로드완료', res);
+    this.http
+      .post(
+        '/api2/earth/lol/allAreaInfo',
+        {},
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+      .subscribe((res: any) => {
+        console.log('로드완료', res);
 
-      this.loadKakaoMap();
-    });
+        this.loadKakaoMap();
+      });
   }
 
   /**
