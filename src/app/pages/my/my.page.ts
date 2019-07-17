@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 
 import * as moment from 'moment';
 import {ShareSnsService} from 'src/app/shared/services/share-sns.service';
+import {LoginService} from 'src/app/shared/services/login.service';
 
 @Component({
   selector: 'app-my',
@@ -130,7 +131,8 @@ export class MyPage implements AfterViewInit {
     private alertC: AlertController,
     private modalC: ModalController,
     private router: Router,
-    public ShareSnsS: ShareSnsService
+    public ShareSnsS: ShareSnsService,
+    private loginS: LoginService
   ) {}
 
   ngAfterViewInit(): void {

@@ -3,8 +3,18 @@ import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
   {path: '', loadChildren: './pages/tabs/tabs.module#TabsPageModule'},
-  {path: 'signup', loadChildren: './pages/sign-up/sign-up.module#SignUpPageModule'},
-  {path: 'signin', loadChildren: './pages/sign-in/sign-in.module#SignInPageModule'},
+  {
+    path: 'signup',
+    loadChildren: './pages/sign-up/sign-up.module#SignUpPageModule'
+  },
+  {
+    path: 'signin',
+    loadChildren: './pages/sign-in/sign-in.module#SignInPageModule'
+  },
+  {
+    path: 'nickname',
+    loadChildren: './pages/nickname/nickname.module#NicknamePageModule'
+  },
   {
     path: 'participation',
     children: [
@@ -19,7 +29,7 @@ const routes: Routes = [
       },
       {
         path: 'step1',
-        loadChildren: './pages/participation/step1/step1.module#Step1PageModule',
+        loadChildren: './pages/participation/step1/step1.module#Step1PageModule'
       },
       {
         path: 'step2',

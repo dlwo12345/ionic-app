@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Subject, BehaviorSubject} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 
 declare const Kakao: any; // 카카오 API SDK
 declare const ShareBand: any; // 밴드
@@ -10,14 +11,13 @@ declare const ShareBand: any; // 밴드
 export class LoginService {
   private signInfo = new BehaviorSubject({});
   public signInfo$ = this.signInfo.asObservable();
-  
-  constructor() {
-  }
+
+  constructor(private http: HttpClient) {}
 
   login() {
-    // 로그인 절차 http 요청해서 받은 결과값을 next
-    this.signInfo.next({
-      mblPhnNum: '01091937267',
+    this.http.get('/assets/logintest.json', {}).subscribe(res => {
+      this.signInfo.next(res);
+      console.log('loginr es', res);
     });
   }
   /**
