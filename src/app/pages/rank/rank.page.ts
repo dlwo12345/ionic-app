@@ -18,7 +18,6 @@ export class RankPage implements OnDestroy {
       console.log('res', res);
     });
 
-    this.loginS.login();
   }
 
   ngOnDestroy() {

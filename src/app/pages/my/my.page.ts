@@ -1,4 +1,4 @@
-import {Component, AfterViewInit} from '@angular/core';
+import {Component, AfterViewInit, OnDestroy} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {AlertController, ModalController} from '@ionic/angular';
 import {DetailPage} from '../modal/detail/detail.page';
@@ -7,14 +7,16 @@ import {Router} from '@angular/router';
 import * as moment from 'moment';
 import {ShareSnsService} from 'src/app/shared/services/share-sns.service';
 import {LoginService} from 'src/app/shared/services/login.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-my',
   templateUrl: 'my.page.html',
   styleUrls: ['my.page.scss']
 })
-export class MyPage implements AfterViewInit {
+export class MyPage implements AfterViewInit, OnDestroy {
   modal = null;
+  private loginSub: Subscription;
   chartData = {
     data: [
       {country: '01', visits: 5},
@@ -133,7 +135,17 @@ export class MyPage implements AfterViewInit {
     private router: Router,
     public ShareSnsS: ShareSnsService,
     private loginS: LoginService
-  ) {}
+  ) {
+    this.loginSub = this.loginS.signInfo$.subscribe(res => {
+      console.log('my page login', res);
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.loginSub) {
+      this.loginSub.unsubscribe();
+    }
+  }
 
   ngAfterViewInit(): void {
     this.ShareSnsS.shareKakao();
