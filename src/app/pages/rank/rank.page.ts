@@ -12,7 +12,6 @@ import {Subscription} from 'rxjs';
 export class RankPage implements OnDestroy {
   private loginSub: Subscription;
   constructor(private loginS: LoginService) {
-    console.log('this.loginS.isLogin()', this.loginS.isLogin());
 
     this.loginSub = loginS.signInfo$.subscribe(res => {
       console.log('res', res);

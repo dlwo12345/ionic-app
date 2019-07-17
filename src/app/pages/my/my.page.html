@@ -1,74 +1,9 @@
-<ion-content>
-  <ion-toolbar>
-    <ion-title>
-      홍길동 님의 발전소
-    </ion-title>
-  </ion-toolbar>
-
-  <ion-list>
-    <ion-item lines="none">
-      <ion-label>5월 평균 발전시간</ion-label>
-      <ion-text>4.71 h</ion-text>
-    </ion-item>
-    <ion-item lines="none">
-      <ion-label>발전소 순위</ion-label>
-      <ion-text>경기 지역 11위</ion-text>
-    </ion-item>
-  </ion-list>
-
-  <ion-list>
-    <ion-list-header>
-      일별 발전시간
-    </ion-list-header>
-    <app-chart [data]="chartData"></app-chart>
-  </ion-list>
-
-  <ion-list>
-    <ion-list-header>
-      발전소 정보
-    </ion-list-header>
-    <ion-item lines="full">
-      <ion-label>위치</ion-label>
-      <ion-text>전라남도 신안군</ion-text>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label>용량</ion-label>
-      <ion-text>99 kWp</ion-text>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label>운영기간</ion-label>
-      <ion-text>2017년 5월 ~ (2년차)</ion-text>
-    </ion-item>
-  </ion-list>
-
-  <div
-    style="background-color: #fcfcfc; text-align: center; letter-spacing: -1px;"
-  >
-    <img src="/assets/icon/logo-w.svg" style="width: 52.5%; opacity: 0.4;" />
-    <p style="color: #999999; font-size: 14px;">
-      © SolarConnect, Inc. All rights reserved.
-    </p>
-  </div>
-</ion-content>
-
-<ion-footer>
-  <ion-grid no-padding>
-    <ion-row>
-      <ion-col no-padding>
-        <ion-button no-margin expand="full" color="warning" id="kakao-link-btn">
-          <span style="font-weight: bold;">카카오톡</span>으로 공유
-        </ion-button>
-      </ion-col>
-      <ion-col no-padding>
-        <ion-button
-          no-margin
-          expand="full"
-          style="--background:#33a0ff;"
-          (click)="ShareSnsS.shareBand('사이트명 - 페이지명', '페이지URL')"
-        >
-          <span style="font-weight: bold;">네이버밴드</span>로 공유
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-footer>
+<app-no-login *ngIf="loginState === 0" style="height: 100%;"></app-no-login>
+<app-no-participation
+  *ngIf="loginState === 1"
+  style="height: 100%;"
+></app-no-participation>
+<app-participation
+  *ngIf="loginState === 2"
+  style="height: 100%;"
+></app-participation>

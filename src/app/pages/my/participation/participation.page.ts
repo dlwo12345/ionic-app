@@ -1,18 +1,15 @@
-import {Component, Input, OnInit, OnDestroy} from '@angular/core';
-import * as moment from 'moment';
-import {NavParams, ModalController} from '@ionic/angular';
-import {MedalPage} from '../medal/medal.page';
-import {LoginService} from 'src/app/shared/services/login.service';
+import {Component} from '@angular/core';
+import {ShareSnsService} from 'src/app/shared/services/share-sns.service';
+import {AlertController, ModalController} from '@ionic/angular';
+import {DetailPage} from '../../modal/detail/detail.page';
 
 @Component({
-  selector: 'app-detail',
-  templateUrl: 'detail.page.html',
-  styleUrls: ['detail.page.scss']
+  selector: 'app-participation',
+  templateUrl: 'participation.page.html',
+  styleUrls: ['participation.page.scss']
 })
-export class DetailPage implements OnInit, OnDestroy {
-  // "value" passed in componentProps
-  @Input() value: number;
-
+export class ParticipationPage {
+  modal = null;
   chartData = {
     data: [
       {country: '01', visits: 5},
@@ -123,27 +120,19 @@ export class DetailPage implements OnInit, OnDestroy {
   };
 
   constructor(
-    private navParams: NavParams,
-    private modalC: ModalController,
-    private loginS: LoginService
-  ) {
-    // componentProps can also be accessed at construction time using NavParams
-    console.log('navParams', navParams);
-  }
+    public ShareSnsS: ShareSnsService,
+    private alertC: AlertController,
+    private modalC: ModalController
+  ) {}
 
-  ngOnDestroy() {}
-
-  ngOnInit() {}
-
-  async closeModal() {
-    const onClosedData = {};
-    await this.modalC.dismiss(onClosedData);
+  ngAfterViewInit(): void {
+    this.ShareSnsS.shareKakao();
   }
 
   async presentModal1(e) {
     console.log('e', e); // 전달되는 seq값을 아래 modal에 전달해줄 예정
     const modal = await this.modalC.create({
-      component: MedalPage,
+      component: DetailPage,
       componentProps: {value: 123}
     });
 
