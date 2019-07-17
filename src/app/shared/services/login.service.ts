@@ -14,47 +14,28 @@ export class LoginService implements OnDestroy {
   private signInfoSub: Subscription;
 
   loginInfo: any;
+
   constructor(private http: HttpClient) {
     this.signInfoSub = this.signInfo$.subscribe(res => {
       this.loginInfo = res;
-      console.log('loginInfo', this.loginInfo);
     });
   }
 
-  ngOnDestroy() {
-    if (this.signInfoSub) {
-      this.signInfoSub.unsubscribe();
-    }
-  }
-
+  /**
+   * 로그인
+   */
   login() {
-    this.http.get('/assets/logintest2.json', {}).subscribe((res: any) => {
+    // (로그인 & 미참가) 임시데이터
+    this.http.get('/assets/logintest1.json', {}).subscribe((res: any) => {
       this.signInfo.next(res.data);
-      // console.log('로그인 로드완료', res);
     });
 
-    // 로그인 절차 http 요청해서 받은 결과값을 next
-    // this.signInfo.next({
-    //   authYn: '', //	인증여부
-    //   useLolYn: '', //	발전왕등록여부
-    //   useLolAppYn: '', //	발전왕리그여부
-    //   lolId: 'jaehong.lee', //	발전왕ID
-    //   mypage: {
-    //     lolId: 'jaehong.lee', //	발전왕ID
-    //     ptcpNm: '이재홍', //	고객이름
-    //     mblPhnNum: '01091937267', //	휴대폰번호
-    //     nickNm: '핵주먹펀치', //	닉네임
-    //     oprtStrtDate: '201901', //	운영시작
-    //     pwpLoctSiDo: '경기도', //	시도
-    //     pwpLoctSiGunGu: '', //	시구군
-    //     totFcltCpct: '', //	용량
-    //     pwpLoctSiDoNm: '', //	시도명
-    //     rnk: '', //	기본랭크
-    //     gnrtTime: '', //	시간
-    //     realRank: '' //	중복체크랭크
-    //   } //	MODEL
+    // (로그인 & 참가) 임시데이터
+    // this.http.get('/assets/logintest2.json', {}).subscribe((res: any) => {
+    //   this.signInfo.next(res.data);
     // });
   }
+
   /**
    * 로그인 여부를 체크한다.
    * 비로그인시 return:0
@@ -81,6 +62,12 @@ export class LoginService implements OnDestroy {
     if (this.loginInfo.useLolYn === 'Y' && this.loginInfo.useLolAppYn === 'Y') {
       console.log('회원가입 o 참가신청 o');
       return loginState.participation;
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.signInfoSub) {
+      this.signInfoSub.unsubscribe();
     }
   }
 }

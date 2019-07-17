@@ -8,6 +8,22 @@
     routerLink="/participation/agree"
     expand="full"
     style="--background: #33a0ff;"
+    *ngIf="loginState === 0"
+    >로그인</ion-button
+  >
+  <ion-button
+    no-margin
+    routerLink="/participation/agree"
+    expand="full"
+    style="--background: #33a0ff;"
+    *ngIf="loginState === 1"
     >발전왕 참가하기</ion-button
+  >
+  <ion-button
+    no-margin
+    expand="full"
+    style="--background: #33a0ff;"
+    *ngIf="loginState === 2"
+    >발전왕 참가신청완료</ion-button
   >
 </ion-footer>

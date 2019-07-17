@@ -1,6 +1,4 @@
-import {Component, AfterViewInit, OnDestroy} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Router} from '@angular/router';
+import {Component} from '@angular/core';
 
 import {LoginService} from 'src/app/shared/services/login.service';
 

@@ -9,19 +9,9 @@ import {Subscription} from 'rxjs';
   templateUrl: 'rank.page.html',
   styleUrls: ['rank.page.scss']
 })
-export class RankPage implements OnDestroy {
-  private loginSub: Subscription;
+export class RankPage {
+  loginState: number;
   constructor(private loginS: LoginService) {
-
-    this.loginSub = loginS.signInfo$.subscribe(res => {
-      console.log('res', res);
-    });
-
-  }
-
-  ngOnDestroy() {
-    if (this.loginSub) {
-      this.loginSub.unsubscribe();
-    }
+    this.loginState = this.loginS.checkUser();
   }
 }
