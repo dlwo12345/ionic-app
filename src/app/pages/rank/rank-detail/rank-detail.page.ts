@@ -1,60 +1,66 @@
-import {Component} from '@angular/core';
-import {Router} from '@angular/router';
+import {Component, OnDestroy} from '@angular/core';
+import {Router, ActivatedRoute} from '@angular/router';
 
-import * as moment from 'moment';
 import {AlertController, ModalController, NavController} from '@ionic/angular';
 import {HttpClient} from '@angular/common/http';
 import {DetailPage} from '../../modal/detail/detail.page';
+import {LoginService} from 'src/app/shared/services/login.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-rank-detail',
   templateUrl: 'rank-detail.page.html',
   styleUrls: ['rank-detail.page.scss']
 })
-export class RankDetailPage {
+export class RankDetailPage implements OnDestroy {
   modal = null;
-  viewMonth = moment(new Date()).format('YYYY-MM');
 
-  testArr: any = [];
+  myData: any;
+  rankList: any = [];
+
+  routeSub: Subscription;
+  signInfoSub: Subscription;
 
   constructor(
     private http: HttpClient,
     private alertC: AlertController,
     private modalC: ModalController,
     private router: Router,
-    private navC: NavController
+    private navC: NavController,
+    private route: ActivatedRoute,
+    private loginS: LoginService
   ) {
-    // 초기 데이터 call
-    this.loadData();
+    this.routeSub = this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        const areaNumber = this.router.getCurrentNavigation().extras.state
+          .league;
+        console.log('전달데이터', areaNumber);
 
-    // 나의 정보도 call해서 받아와야함(발전왕 참가신청 및 나의 발전소 출력시키기 위해서)
-    // 발전소 참가신청 필요 상태 - 미신청, 요청중, 참가중
-    // 참가중일때 내 발전소에 대한 정보 필요
-  }
+        // 초기 데이터 call(여기에 전달받은 지역번호 담아서 보내줘야함)
+        this.loadData();
 
-  // apiTest() {
-  //   this.http.get('/assets/test.json', {}).subscribe(res => {
-  //     console.log('res', res);
-  //   });
-  //   // const alert = this.alertC.create({message:'123'});
-  //   // alert.then(res=>{
-  //   //   res.present();
-  //   // })
-  // }
-
-  // api call
-  loadData() {
-    this.http.get('/assets/test2.json', {}).subscribe((res: any) => {
-      console.log('로드완료', res);
-      this.testArr = res.data;
+        // 로그인 && 참가자일때
+        if (this.loginS.checkUser() === 2) {
+          this.signInfoSub = this.loginS.signInfo$.subscribe(res => {
+            // 전달받은 지역번호와 로그인 정보의 지역번호가 같을때만 데이터 받음
+            if (res.mypage.pwpLoctSiDo === areaNumber) {
+              this.myData = res.mypage;
+            }
+            console.log('rank-detail login 정보 호출', this.myData);
+          });
+        }
+      } else {
+        // 비정상적인 방법을 통해서 접근했을때 초기페이지로 돌려보냄(map에서 링크찍고 들어올때만 접근가능)
+        this.navC.navigateBack('/tabs/rank/map');
+      }
     });
   }
 
-  // 임시로 리로딩용도로 사용 추후엔 loadData로 호출예정
-  loadData2() {
-    this.http.get('/assets/test3.json', {}).subscribe((res: any) => {
-      console.log('로드완료', res);
-      this.testArr = res.data;
+  // api call
+  loadData() {
+    this.http.get('/assets/sidoAreaInfo.json', {}).subscribe((res: any) => {
+      this.rankList = res.data.sidoAreaLolList;
+      console.log('detail 리그 로드완료', this.rankList);
     });
   }
 
@@ -84,51 +90,16 @@ export class RankDetailPage {
     return await modal.present();
   }
 
-  changeMonth(type?: string, time?: any) {
-    switch (type) {
-      case 'left':
-        this.viewMonth = moment(this.viewMonth)
-          .add(-1, 'month')
-          .format('YYYY-MM');
-        break;
-      case 'right':
-        this.viewMonth = moment(this.viewMonth)
-          .add(1, 'month')
-          .format('YYYY-MM');
-        break;
-      case 'select':
-        this.viewMonth = moment(time.detail.value).format('YYYY-MM');
-        break;
-    }
-
-    this.ionRefresh(); // 임시.. data reload api 호출 필요
-
-    // touch stop 이벤트 오류 방지 return
-    return true;
-  }
-
   changeLeague() {
-    this.loadData2();
+    this.loadData();
   }
 
-  async ionRefresh(event?) {
-    console.log('Pull Event Triggered!');
-    // api 호출
-    await this.loadData2();
-
-    // complete()  signify that the refreshing has completed and to close the refresher
-    if (event) {
-      event.target.complete();
+  ngOnDestroy(): void {
+    if (this.routeSub) {
+      this.routeSub.unsubscribe();
     }
-  }
-
-  ionPull(event) {
-    // 사용자가 콘텐츠를 가져와서 재생기를 노출하는 동안 발생
-    console.log('ionPull Event Triggered!');
-  }
-
-  ionStart(event) {
-    // 사용자가 pull down을 시작할때 발생하는 이벤트
-    console.log('ionStart Event Triggered!');
+    if (this.signInfoSub) {
+      this.signInfoSub.unsubscribe();
+    }
   }
 }

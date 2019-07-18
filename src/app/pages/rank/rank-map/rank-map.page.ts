@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Router} from '@angular/router';
+import {Router, NavigationExtras} from '@angular/router';
 
 import * as moment from 'moment';
 import {ModalController} from '@ionic/angular';
@@ -8,6 +8,17 @@ import {HttpClient} from '@angular/common/http';
 
 declare var kakao: any;
 
+const LatLngType = {
+  41: {lat: 37.774358, lng: 126.781824}, // 경기도
+  42: {lat: 38.09441, lng: 128.579839}, // 강원도
+  43: {lat: 37.116357, lng: 128.196271}, // 충청북도
+  44: {lat: 36.671489, lng: 126.816363}, // 충청남도
+  45: {lat: 35.697445, lng: 127.125101}, // 전라북도
+  46: {lat: 34.849181, lng: 126.974222}, // 전라남도
+  47: {lat: 36.365168, lng: 129.013577}, // 경상북도
+  48: {lat: 35.363869, lng: 129.10274} // 경상남도
+};
+
 @Component({
   selector: 'app-rank-map',
   templateUrl: 'rank-map.page.html',
@@ -15,6 +26,7 @@ declare var kakao: any;
 })
 export class RankMapPage {
   viewMonth = moment(new Date()).format('YYYY-MM');
+
   constructor(
     private router: Router,
     private modalC: ModalController,
@@ -22,21 +34,11 @@ export class RankMapPage {
   ) {}
 
   loadData() {
-    this.http
-      .post(
-        '/api2/earth/lol/allAreaInfo',
-        {},
-        {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        }
-      )
-      .subscribe((res: any) => {
-        console.log('로드완료', res);
+    this.http.get('/assets/allAreaInfo.json', {}).subscribe((res: any) => {
+      console.log('로드완료', res.data);
 
-        this.loadKakaoMap();
-      });
+      this.loadKakaoMap(res.data);
+    });
   }
 
   /**
@@ -46,19 +48,9 @@ export class RankMapPage {
     this.loadData();
   }
 
-  loadKakaoMap() {
-    const LatLngType = {
-      경기도: {lat: 37.774358, lng: 126.781824}, // 경기도
-      강원도: {lat: 38.09441, lng: 128.579839}, // 강원도
-      경상북도: {lat: 36.365168, lng: 129.013577}, // 경상북도
-      경상남도: {lat: 35.363869, lng: 129.10274}, // 경상남도
-      전라북도: {lat: 35.697445, lng: 127.125101}, // 전라북도
-      전라남도: {lat: 34.849181, lng: 126.974222}, // 전라남도
-      충청남도: {lat: 36.671489, lng: 126.816363}, // 충청남도
-      충청북도: {lat: 37.116357, lng: 128.196271} // 충청북도
-    };
-
+  loadKakaoMap(data: any) {
     // 데이터 받아서 customOverlayList 루프돌아서 셋팅, 위경도는 위의 object에 도별 구분 받아서 처리
+    console.log('data', data);
 
     const mapContainer = document.getElementById('map'), // 지도를 표시할 div
       mapOption = {
@@ -70,60 +62,36 @@ export class RankMapPage {
 
     const map = new kakao.maps.Map(mapContainer, mapOption);
 
-    const customOverlayList = [
-      {
-        position: new kakao.maps.LatLng(37.774358, 126.781824), // 커스텀 오버레이가 표시될 위치입니다
-        enterPosition: '경기도', // 참가 구분
-        number: 5 // 참가 인원
-      },
-      {
-        position: new kakao.maps.LatLng(38.09441, 128.579839), // 커스텀 오버레이가 표시될 위치입니다
-        enterPosition: '강원도', // 참가 구분
-        number: 1 // 참가 인원
-      },
-      {
-        position: new kakao.maps.LatLng(36.365168, 129.013577), // 커스텀 오버레이가 표시될 위치입니다
-        enterPosition: '경상북도', // 참가 구분
-        number: 1 // 참가 인원
-      },
-      {
-        position: new kakao.maps.LatLng(35.363869, 129.10274), // 커스텀 오버레이가 표시될 위치입니다
-        enterPosition: '경상남도', // 참가 구분
-        number: 1 // 참가 인원
-      },
-      {
-        position: new kakao.maps.LatLng(35.697445, 127.125101), // 커스텀 오버레이가 표시될 위치입니다
-        enterPosition: '전라북도', // 참가 구분
-        number: 1 // 참가 인원
-      },
-      {
-        position: new kakao.maps.LatLng(34.849181, 126.974222), // 커스텀 오버레이가 표시될 위치입니다
-        enterPosition: '전라남도', // 참가 구분
-        number: 1 // 참가 인원
-      },
-      {
-        position: new kakao.maps.LatLng(36.671489, 126.816363), // 커스텀 오버레이가 표시될 위치입니다
-        enterPosition: '충청남도', // 참가 구분
-        number: 1 // 참가 인원
-      },
-      {
-        position: new kakao.maps.LatLng(37.116357, 128.196271), // 커스텀 오버레이가 표시될 위치입니다
-        enterPosition: '충청북도', // 참가 구분
-        number: 1 // 참가 인원
-      }
-    ];
+    const customOverlayList = data.allAreaLolList.map(v => {
+      const areaNumber = v.pwpLoctSiDo; // 지역번호
+      const enterPosition = v.pwpLoctSiDoNm; // 참가 구분
+      // tslint:disable-next-line: variable-name
+      const count = v.pwpLoctSiDoCnt; // 참가 인원
+      return {
+        position: new kakao.maps.LatLng( // 커스텀 오버레이가 표시될 위치입니다
+          LatLngType[areaNumber].lat,
+          LatLngType[areaNumber].lng
+        ),
+        enterPosition, // 참가 구분
+        count, // 참가 인원
+        areaNumber // 지역번호
+      };
+    });
 
     customOverlayList.forEach(v => {
       const itemContent = document.createElement('div');
       itemContent.className = 'customoverlay';
       itemContent.addEventListener('click', e => {
-        this.router.navigate(['tabs', 'rank', 'detail']);
+        const navigationExtras: NavigationExtras = {
+          state: {league: v.areaNumber}
+        };
+        this.router.navigate(['tabs', 'rank', 'detail'], navigationExtras);
         console.log('v', v);
         console.log('e', e);
       });
       itemContent.innerHTML = `<a href="javascript:void(0)" target="_blank"><span class="title">${
         v.enterPosition
-      }(${v.number})<br><span style="color:#60A9F8;">4.81 h</span></span></a>`;
+      }(${v.count})<br><span style="color:#60A9F8;">4.81 h</span></span></a>`;
 
       // const itemContent = `<div class="customoverlay">
       //                       <a href="javascript:void(0)" target="_blank">

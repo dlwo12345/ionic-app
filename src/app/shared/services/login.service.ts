@@ -26,14 +26,14 @@ export class LoginService implements OnDestroy {
    */
   login() {
     // (로그인 & 미참가) 임시데이터
-    this.http.get('/assets/logintest1.json', {}).subscribe((res: any) => {
-      this.signInfo.next(res.data);
-    });
-
-    // (로그인 & 참가) 임시데이터
-    // this.http.get('/assets/logintest2.json', {}).subscribe((res: any) => {
+    // this.http.get('/assets/logintest1.json', {}).subscribe((res: any) => {
     //   this.signInfo.next(res.data);
     // });
+
+    // (로그인 & 참가) 임시데이터
+    this.http.get('/assets/logintest2.json', {}).subscribe((res: any) => {
+      this.signInfo.next(res.data);
+    });
   }
 
   /**

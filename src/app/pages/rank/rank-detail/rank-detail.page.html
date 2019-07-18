@@ -15,26 +15,15 @@
   </ion-toolbar>
   <ion-toolbar style="padding-left: 15px; padding-right: 15px;">
     <!--<ion-select-->
-      <!--placeholder="8월 리그"-->
-      <!--okText="확인"-->
-      <!--cancelText="취소"-->
-      <!--slot="start"-->
-      <!--(ionChange)="changeLeague($event)"-->
+    <!--placeholder="8월 리그"-->
+    <!--okText="확인"-->
+    <!--cancelText="취소"-->
+    <!--slot="start"-->
+    <!--(ionChange)="changeLeague($event)"-->
     <!--&gt;-->
-      <!--<ion-select-option value="brown">8월 리그</ion-select-option>-->
-      <!--<ion-select-option value="blonde">9월 리그</ion-select-option>-->
+    <!--<ion-select-option value="brown">8월 리그</ion-select-option>-->
+    <!--<ion-select-option value="blonde">9월 리그</ion-select-option>-->
     <!--</ion-select>-->
-    <!-- <ion-datetime
-        style="font-weight:bold; padding-right: 20px;"
-        mode="ios"
-        display-format="YYYY-MM"
-        cancelText="취소"
-        done-text="완료"
-        [value]="viewMonth"
-        (ionChange)="changeMonth('select', $event)"
-        min="2019-08"
-        slot="start"
-      ></ion-datetime> -->
     <!--<p style="font-size: 12px;" slot="end">07월 31일 08:00 집계</p>-->
     <div class="league_info">
       <span class="league_month">8월 리그</span>
@@ -43,41 +32,33 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <!-- <ion-refresher
-    slot="fixed"
-    (ionRefresh)="ionRefresh($event)"
-    (ionPull)="ionPull($event)"
-    (ionStart)="ionStart($event)"
-  >
-    <ion-refresher-content
-      pullingIcon="arrow-dropdown"
-      refreshingSpinner="circles"
-    >
-    </ion-refresher-content>
-  </ion-refresher> -->
-
+<!-- <ion-content>
   <ion-list no-padding>
     <ion-item
       no-padding
       class="custom my"
       button
+      *ngIf="myData"
       (click)="goMy()"
       style="--background:#33a0ff;"
       lines="none"
     >
       <ion-thumbnail>
-        <div class="rank-wrap">
-          <span class="rank-number">29</span>
-        </div>
+        <ng-container [ngSwitch]="myData.realRank">
+          <ion-icon *ngSwitchCase="'1'" mode="ios" name="medal">1</ion-icon>
+          <ion-icon *ngSwitchCase="'2'" mode="ios" name="medal">2</ion-icon>
+          <ion-icon *ngSwitchCase="'3'" mode="ios" name="medal">3</ion-icon>
+          <ion-icon *ngSwitchDefault mode="ios" name="medal">4</ion-icon>
+        </ng-container>
       </ion-thumbnail>
       <ion-label style="font-size: 0.8em;">
         <div class="clearfix">
-          <span style="float:left; color:#fff; font-weight: bold;"
-            >내발전소</span
+          <span style="float:left;"
+            ><span style="font-weight: bold;">{{ myData.nickNm }}</span> 님의
+            발전소</span
           >
-          <span style="float:right; color:#fff; font-weight: bold;"
-            >1.1시간</span
+          <span style="float:right; font-weight: bold;"
+            >{{ myData.gnrtTime }} 시간</span
           >
         </div>
       </ion-label>
@@ -86,19 +67,49 @@
       no-padding
       class="custom list"
       button
-      *ngFor="let item of testArr; let i = index"
+      *ngFor="let item of rankList; let i = index"
       (click)="presentModal1($event)"
     >
       <ion-thumbnail>
         <div class="rank-wrap">
-          <ion-icon *ngIf="i <= 2" mode="ios" name="medal"></ion-icon>
-          <span class="rank-number">{{ i + 1 }}</span>
+          <ng-container [ngSwitch]="item.realRank">
+            <ion-icon *ngSwitchCase="'1'" mode="ios" name="medal">1</ion-icon>
+            <ion-icon *ngSwitchCase="'2'" mode="ios" name="medal">2</ion-icon>
+            <ion-icon *ngSwitchCase="'3'" mode="ios" name="medal">3</ion-icon>
+            <ion-icon *ngSwitchDefault mode="ios" name="medal">4</ion-icon>
+          </ng-container>
         </div>
       </ion-thumbnail>
       <ion-label style="font-size: 0.8em;">
         <div class="clearfix">
-          <span style="float:left; font-weight: bold;">{{ item.text }}</span>
-          <span style="float:right; font-weight: bold;">1.1시간</span>
+          <span style="float:left;"
+            ><span style="font-weight: bold;">{{ item.nickNm }}</span> 님의
+            발전소</span
+          >
+          <span style="float:right; font-weight: bold;"
+            >{{ item.gnrtTime }} 시간</span
+          >
+        </div>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content> -->
+
+<ion-content>
+  <ion-list no-padding>
+    <ion-item no-padding class="custom my" button lines="none">
+      <ion-thumbnail>
+        <span>1등</span>
+        <!-- <span>2등</span> -->
+        <!-- <span>3등</span> -->
+        <!-- <span>이외</span> -->
+      </ion-thumbnail>
+      <ion-label style="font-size: 0.8em;">
+        <div class="clearfix">
+          <span style="float:left;"
+            ><span style="font-weight: bold;">아자아자</span> 님의 발전소</span
+          >
+          <span style="float:right; font-weight: bold;">1.111 시간</span>
         </div>
       </ion-label>
     </ion-item>
