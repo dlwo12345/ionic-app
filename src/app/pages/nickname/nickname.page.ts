@@ -12,7 +12,7 @@ import {of, Observable} from 'rxjs';
 })
 export class NicknamePage {
   public nicknameForm: FormGroup;
-  private nickNmChkFlag: boolean | null;
+  public nickNmChkFlag: boolean | null;
 
   constructor(
     private router: Router,

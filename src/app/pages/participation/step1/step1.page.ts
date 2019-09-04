@@ -104,7 +104,7 @@ export class Step1Page implements OnInit, OnDestroy {
     return false;
   }
 
-  segmentChanged() {
+  segmentChanged(e) {
     console.log('segmentChanged');
   }
 
