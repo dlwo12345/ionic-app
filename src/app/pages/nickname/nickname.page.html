@@ -1,9 +1,36 @@
-<ion-content padding-horizontal>
-  <ion-toolbar class="ion-margin-vertical">
-    <ion-title>닉네임입력</ion-title>
+<ion-content [formGroup]="nicknameForm" no-margin="true" no-padding="true">
+  <ion-toolbar class="ion-margin-vertical" mode="md">
+    <ion-title>닉네임 입력</ion-title>
   </ion-toolbar>
+  <div class="step">
+    <p class="info_box">
+      등록하신 발전소의 개인정보 보호를 위해 발전왕 리그에서는 닉네임으로만 노출
+      됩니다. <br /><br />
+
+      사용하실 닉네임을 아래 영역에 입력 해 주세요.
+    </p>
+    <div class="step" style="padding: 0;">
+      <input
+        class="width-full"
+        type="text"
+        placeholder="닉네임을 입력해 주세요."
+        style="margin-top: 104px;"
+        formControlName="nickNm"
+        [ngClass]="{
+          error: targetValidate('nicknameForm', 'nickNm')
+        }"
+      />
+    </div>
+  </div>
 </ion-content>
 
 <ion-footer>
-  <ion-button expand="full">확인</ion-button>
+  <p class="errorBox" *ngIf="nickNmChkFlag">
+    <span class="errorStep">이미 사용중인 닉네임 입니다.</span>
+  </p>
+  <div class="width-margin">
+    <button class="inner-btn" style="margin-bottom: 66px;" (click)="submit()">
+      확인
+    </button>
+  </div>
 </ion-footer>

@@ -1,0 +1,211 @@
+//:host ::ng-deep ion-input {
+//  --background: #aaa !important;
+//}
+
+ion-content {
+  word-break: keep-all;
+}
+ion-title {
+  padding: 0 0 16px 20px;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: -1px;
+  color: #1a1a1a;
+  background-color: #fcfcfc;
+  line-height: 42px;
+
+  span {
+    font-weight: normal;
+  }
+}
+
+.step_title {
+  padding: 0 0 5px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.11;
+  letter-spacing: -1px;
+  color: #1a1a1a;
+}
+
+.hr_line {
+  background-color: #f7f7f7;
+}
+
+.p_tip {
+  color: #999;
+  line-height: 23px;
+  letter-spacing: -1px;
+  font-size: 14px;
+}
+
+.errorBox {
+  height: 28px;
+  text-align: center;
+}
+
+// 인풋과 버튼 같이 있는 형태
+.input_box_btn {
+  display: flex;
+
+  .box_input {
+    width: 100%;
+    padding-right: 8px;
+    position: relative;
+
+    input {
+      width: 100%;
+    }
+
+    .time {
+      position: absolute;
+      right: 15px;
+      top: 18px;
+      color: #33a0ff;
+    }
+  }
+  .box_btn {
+    width: 72px;
+
+    button {
+      width: 100%;
+      height: 48px;
+      margin: 6px 0;
+    }
+  }
+}
+
+ion-item,
+ion-grid,
+ion-row,
+ion-col {
+  padding: 0px;
+}
+
+ion-row {
+  padding-top: 15px;
+}
+
+//ion-input {
+//  padding-left: 16px;
+//}
+
+ion-grid,
+ion-row,
+ion-col {
+  padding: 0px;
+  margin: 0px;
+}
+
+ion-input {
+  padding-top: 5px;
+}
+
+input {
+  margin: 6px 0;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 2px;
+  border: solid 1px #ccc;
+  font-size: 18px;
+
+  &.error {
+    border-color: #ff5722;
+  }
+}
+input:disabled {
+  background-color: #f7f7f7;
+  color: #ccc;
+}
+
+button:disabled {
+  background-color: #ccc;
+  color: #fff;
+}
+input:disabled::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #ccc;
+}
+input:disabled:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #ccc;
+}
+
+button {
+  width: 72px;
+  height: 48px;
+  font-family: NotoSansKR;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.89;
+  letter-spacing: -1.13px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #33a0ff;
+}
+
+button[disabled='true'] {
+  background-color: #cccccc;
+
+  &::placeholder {
+    color: #ccc;
+  }
+}
+
+.width-full {
+  width: 100%;
+}
+
+.step {
+  padding: 0 20px 0 20px;
+  input {
+    color: #333;
+    &::placeholder {
+      color: #ccc;
+    }
+  }
+}
+
+ion-select {
+  border: solid 1px #ccc;
+  background-color: #fff;
+  margin: 12px 0;
+}
+
+.errorStep {
+  height: 23px;
+  font-family: NotoSansKR;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.44;
+  letter-spacing: -1px;
+  text-align: center;
+  color: #ff5722;
+}
+.info_box {
+  color: #333;
+}
+.width-margin {
+  width: 100%;
+  padding: 0 20px;
+  .inner-btn {
+    width: 100%;
+    height: 54px;
+    font-size: 20px;
+  }
+}
+.link {
+  display: block;
+  padding: 12px 0 31px;
+  font-size: 16px;
+  color: #6d6d6d;
+  text-align: center;
+  text-decoration: underline;
+}
+.footer-md:before {
+  display: none;
+}
